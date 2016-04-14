@@ -11,27 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130315230445) do
-
-  create_table "microposts", force: :cascade do |t|
-    t.string   "content",    limit: 255
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "follower_id", limit: 4
-    t.integer  "followed_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+ActiveRecord::Schema.define(version: 20130315015932) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255
