@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160416065801) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "address",    limit: 255
-    t.integer  "zipcode",    limit: 4
+    t.string   "zipcode",    limit: 255
     t.string   "city",       limit: 255
     t.string   "state",      limit: 255
     t.integer  "user_id",    limit: 4
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160416065801) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      limit: 255
     t.string   "last_name",       limit: 255
-    t.integer  "ssn",             limit: 4
+    t.string   "ssn",             limit: 255
     t.string   "telephone",       limit: 255
     t.string   "email",           limit: 255
     t.datetime "created_at"
