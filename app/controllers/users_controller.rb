@@ -18,7 +18,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    location = Location.create(user_id: @user.id, address: params[:address], zipcode: params[:zipcode], city: params[:city], state: params[:state])
+    location = Location.create(user_id: @user.id,
+                               address: params[:user][:address],
+                               zipcode: params[:user][:zipcode],
+                               city: params[:user][:city],
+                               state: params[:user][:state])
     @user.location = location
     if @user.save
       sign_in @user
@@ -33,6 +37,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.location.update_attributes(address: params[:user][:address],
+                                     zipcode: params[:user][:zipcode],
+                                     city: params[:user][:city],
+                                     state: params[:user][:state])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -49,7 +57,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :ssn, :telephone, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :ssn, :telephone, :password, :password_confirmation, :address, :zipcode, :city, :state)
     end
 
     # Before filters
