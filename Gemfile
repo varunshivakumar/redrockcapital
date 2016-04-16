@@ -21,8 +21,8 @@ gem 'bootstrap-sass'
 # Pagination
 gem 'will_paginate'
 
-# For stock graphs
-# gem 'highstock-rails'
+# For stock information
+gem "stock_quote"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
