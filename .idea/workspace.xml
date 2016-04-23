@@ -4,6 +4,7 @@
     <list default="true" id="36a9bc13-fda5-4a32-a35f-4e940ab48c0b" name="Default" comment="">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/index.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/orders.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/stocks/index.html.erb" />
@@ -24,6 +25,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/market_on_close_order.rb" afterPath="$PROJECT_DIR$/app/models/market_on_close_order.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/market_order.rb" afterPath="$PROJECT_DIR$/app/models/market_order.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/trailing_stop_order.rb" afterPath="$PROJECT_DIR$/app/models/trailing_stop_order.rb" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/account.rb" afterPath="$PROJECT_DIR$/app/models/account.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/employee.rb" afterPath="$PROJECT_DIR$/app/models/employee.rb" />
+>>>>>>> Added for Employee has_many Accounts relationship
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" afterPath="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
     </list>
@@ -46,6 +51,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
@@ -158,11 +164,19 @@
             <state relative-caret-position="17">
               <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+      <file leaf-file-name="account.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/account.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+>>>>>>> Added for Employee has_many Accounts relationship
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="stocks_controller.rb" pinned="false" current-in-tab="false">
@@ -191,11 +205,19 @@
             <state relative-caret-position="0">
               <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+      <file leaf-file-name="20160423045451_create_accounts.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+>>>>>>> Added for Employee has_many Accounts relationship
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
@@ -217,6 +239,13 @@
             <state relative-caret-position="153">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+      <file leaf-file-name="employee.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+>>>>>>> Added for Employee has_many Accounts relationship
               <folding />
             </state>
           </provider>
@@ -244,6 +273,7 @@
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/static_pages/help.html.erb" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/views/clients/home.html" />
         <option value="$PROJECT_DIR$/app/views/clients/home.html.erb" />
         <option value="$PROJECT_DIR$/app/views/clients/clienthome.html.erb" />
@@ -256,6 +286,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
 =======
         <option value="$PROJECT_DIR$/app/models/employee.rb" />
+=======
+>>>>>>> Added for Employee has_many Accounts relationship
         <option value="$PROJECT_DIR$/db/migrate/20160423044734_create_employees.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160423045737_create_stocks.rb" />
@@ -272,10 +304,14 @@
         <option value="$PROJECT_DIR$/app/models/market_on_close_order.rb" />
         <option value="$PROJECT_DIR$/app/models/hidden_stop_order.rb" />
         <option value="$PROJECT_DIR$/app/models/client.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
         <option value="$PROJECT_DIR$/app/models/location.rb" />
         <option value="$PROJECT_DIR$/app/models/account.rb" />
+<<<<<<< HEAD
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+        <option value="$PROJECT_DIR$/app/models/employee.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
+>>>>>>> Added for Employee has_many Accounts relationship
       </list>
     </option>
   </component>
@@ -625,15 +661,20 @@
 =======
       <workItem from="1460826455844" duration="8040000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1461387019026" duration="1428000" />
 >>>>>>> Added all of the models
 =======
       <workItem from="1461387019026" duration="2520000" />
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+      <workItem from="1461387019026" duration="4624000" />
+>>>>>>> Added for Employee has_many Accounts relationship
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="18261000" />
@@ -650,6 +691,9 @@
 =======
     <option name="totallyTimeSpent" value="13828000" />
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+    <option name="totallyTimeSpent" value="15932000" />
+>>>>>>> Added for Employee has_many Accounts relationship
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -980,6 +1024,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_footer.html.erb">
 =======
     <entry file="file://$PROJECT_DIR$/db/migrate/20160416205145_create_clients.rb">
@@ -994,6 +1039,8 @@
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
 =======
+=======
+>>>>>>> Added for Employee has_many Accounts relationship
     <entry file="file://$PROJECT_DIR$/db/migrate/20130311191400_create_users.rb">
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
       <provider selected="true" editor-type-id="text-editor">
@@ -1266,6 +1313,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/clients/clienthome.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1299,6 +1347,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> Added all of the models
 =======
+=======
+>>>>>>> Added for Employee has_many Accounts relationship
     <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1448,6 +1498,7 @@
     </entry>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1465,22 +1516,39 @@
 =======
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb">
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160416205145_create_clients.rb">
+>>>>>>> Added for Employee has_many Accounts relationship
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/account.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
 <<<<<<< HEAD
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="17">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+>>>>>>> Added for Employee has_many Accounts relationship
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423050908_create_hidden_stop_orders.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1489,6 +1557,12 @@
 =======
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
+=======
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+>>>>>>> Added for Employee has_many Accounts relationship
           <folding />
         </state>
       </provider>
