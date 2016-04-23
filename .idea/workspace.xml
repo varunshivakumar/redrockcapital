@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/index.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/orders.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/stocks/index.html.erb" />
@@ -39,6 +40,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/account.rb" afterPath="$PROJECT_DIR$/app/models/account.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/owns_stock.rb" afterPath="$PROJECT_DIR$/app/models/owns_stock.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" afterPath="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/account.rb" afterPath="$PROJECT_DIR$/app/models/account.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/owns_stock.rb" afterPath="$PROJECT_DIR$/app/models/owns_stock.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/stock.rb" afterPath="$PROJECT_DIR$/app/models/stock.rb" />
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" afterPath="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
 >>>>>>> Added relationship between account and owns stock models
 =======
@@ -308,9 +315,54 @@
       <file leaf-file-name="20160423045553_create_owns_stocks.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="119">
               <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
 >>>>>>> Added a foreign key reference of stock to owns_stock migration file
+=======
+            <state relative-caret-position="102">
+              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="owns_stock.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/owns_stock.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/account.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stock.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/stock.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20160423045737_create_stocks.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20160423045737_create_stocks.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
               <folding />
             </state>
           </provider>
@@ -375,12 +427,15 @@
 =======
         <option value="$PROJECT_DIR$/db/migrate/20160423050012_create_orders.rb" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Added relationship between account and owns stock models
         <option value="$PROJECT_DIR$/app/models/employee.rb" />
 =======
 >>>>>>> Created a relationship between client and employee through account
         <option value="$PROJECT_DIR$/app/models/account.rb" />
         <option value="$PROJECT_DIR$/app/models/owns_stock.rb" />
+=======
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
         <option value="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -396,6 +451,9 @@
 =======
         <option value="$PROJECT_DIR$/app/models/client.rb" />
         <option value="$PROJECT_DIR$/app/models/employee.rb" />
+        <option value="$PROJECT_DIR$/app/models/owns_stock.rb" />
+        <option value="$PROJECT_DIR$/app/models/account.rb" />
+        <option value="$PROJECT_DIR$/app/models/stock.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
 >>>>>>> Added a foreign key reference of stock to owns_stock migration file
       </list>
@@ -750,6 +808,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1461387019026" duration="1428000" />
 >>>>>>> Added all of the models
 =======
@@ -767,10 +826,14 @@
 =======
       <workItem from="1461387019026" duration="7859000" />
 >>>>>>> Added a foreign key reference of stock to owns_stock migration file
+=======
+      <workItem from="1461387019026" duration="8242000" />
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -803,10 +866,13 @@
 =======
     <option name="totallyTimeSpent" value="19167000" />
 >>>>>>> Added a foreign key reference of stock to owns_stock migration file
+=======
+    <option name="totallyTimeSpent" value="19550000" />
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30059084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -817,6 +883,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29937303" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29848486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -824,6 +891,9 @@
 =======
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30261138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30261138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
@@ -880,6 +950,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/db/migrate/20130314184954_add_remember_token_to_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -912,6 +983,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1199,6 +1272,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423045737_create_stocks.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1228,6 +1302,8 @@
     </entry>
 =======
 >>>>>>> Added relationship between account and owns stock models
+=======
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423050637_create_market_orders.rb">
 >>>>>>> Created associations between different order types and added has_one, belongs_to relationship for clients and accounts
       <provider selected="true" editor-type-id="text-editor">
@@ -1697,23 +1773,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/owns_stock.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/client.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/account.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/client.rb">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1730,12 +1806,17 @@
 >>>>>>> Added relationship between account and owns stock models
 =======
         <state relative-caret-position="68">
+<<<<<<< HEAD
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
 >>>>>>> Created a relationship between client and employee through account
+=======
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1761,6 +1842,17 @@
 >>>>>>> Added relationship between account and owns stock models
 =======
     <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+=======
+    <entry file="file://$PROJECT_DIR$/app/models/stock.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/owns_stock.rb">
+>>>>>>> Changed owns stock -> stock references relationship to belongs to relationship and used owns stock as a relationship between accounts and stock
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
@@ -1769,10 +1861,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045737_create_stocks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        <state relative-caret-position="102">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding />
         </state>
       </provider>
