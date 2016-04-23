@@ -1,2 +1,2 @@
-class HiddenStopOrder < ActiveRecord::Base
+class HiddenStopOrder < Order
 end

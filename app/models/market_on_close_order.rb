@@ -1,2 +1,2 @@
-class MarketOnCloseOrder < ActiveRecord::Base
+class MarketOnCloseOrder < Order
 end

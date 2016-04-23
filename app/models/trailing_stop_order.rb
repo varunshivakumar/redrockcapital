@@ -1,2 +1,2 @@
-class TrailingStopOrder < ActiveRecord::Base
+class TrailingStopOrder < Order
 end
