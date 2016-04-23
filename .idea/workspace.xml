@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/index.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/orders.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/stocks/index.html.erb" />
@@ -44,6 +45,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/client.rb" afterPath="$PROJECT_DIR$/app/models/client.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/employee.rb" afterPath="$PROJECT_DIR$/app/models/employee.rb" />
 >>>>>>> Created a relationship between client and employee through account
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" afterPath="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
+>>>>>>> Added a foreign key reference of stock to owns_stock migration file
     </list>
     <ignored path="redrockcapital.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,6 +68,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -299,6 +304,13 @@
             <state relative-caret-position="34">
               <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
 >>>>>>> Created a relationship between client and employee through account
+=======
+      <file leaf-file-name="20160423045553_create_owns_stocks.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+>>>>>>> Added a foreign key reference of stock to owns_stock migration file
               <folding />
             </state>
           </provider>
@@ -371,6 +383,7 @@
         <option value="$PROJECT_DIR$/app/models/owns_stock.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Added for Employee has_many Accounts relationship
 =======
         <option value="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
@@ -380,6 +393,11 @@
         <option value="$PROJECT_DIR$/app/models/client.rb" />
         <option value="$PROJECT_DIR$/app/models/employee.rb" />
 >>>>>>> Created a relationship between client and employee through account
+=======
+        <option value="$PROJECT_DIR$/app/models/client.rb" />
+        <option value="$PROJECT_DIR$/app/models/employee.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
+>>>>>>> Added a foreign key reference of stock to owns_stock migration file
       </list>
     </option>
   </component>
@@ -731,6 +749,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1461387019026" duration="1428000" />
 >>>>>>> Added all of the models
 =======
@@ -745,10 +764,14 @@
 =======
       <workItem from="1461387019026" duration="7409000" />
 >>>>>>> Created a relationship between client and employee through account
+=======
+      <workItem from="1461387019026" duration="7859000" />
+>>>>>>> Added a foreign key reference of stock to owns_stock migration file
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -777,6 +800,9 @@
 =======
     <option name="totallyTimeSpent" value="18717000" />
 >>>>>>> Created a relationship between client and employee through account
+=======
+    <option name="totallyTimeSpent" value="19167000" />
+>>>>>>> Added a foreign key reference of stock to owns_stock migration file
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
@@ -1592,6 +1618,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1623,15 +1650,22 @@
 =======
 >>>>>>> Created a relationship between client and employee through account
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423050012_create_orders.rb">
+=======
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb">
+>>>>>>> Added a foreign key reference of stock to owns_stock migration file
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state relative-caret-position="68">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/models/order.rb">
 >>>>>>> Added relationship between account and owns stock models
+=======
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160416205145_create_clients.rb">
+>>>>>>> Added a foreign key reference of stock to owns_stock migration file
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1639,10 +1673,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423044734_create_employees.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/order.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423050012_create_orders.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1659,30 +1709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160416205145_create_clients.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160423044734_create_employees.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1739,6 +1765,14 @@
         <state relative-caret-position="34">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
 >>>>>>> Created a relationship between client and employee through account
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding />
         </state>
       </provider>

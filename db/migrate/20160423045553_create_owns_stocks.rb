@@ -5,6 +5,7 @@ class CreateOwnsStocks < ActiveRecord::Migration
       t.integer :bought_price
 
       t.belongs_to :account
+      t.references :stock_id
 
       t.timestamps null: false
     end
