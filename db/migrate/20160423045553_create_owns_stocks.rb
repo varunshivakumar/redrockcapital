@@ -4,6 +4,8 @@ class CreateOwnsStocks < ActiveRecord::Migration
       t.integer :num_shares
       t.integer :bought_price
 
+      t.belongs_to :account
+
       t.timestamps null: false
     end
   end
