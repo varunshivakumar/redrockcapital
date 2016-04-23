@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/index.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/clients/orders.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/stocks/index.html.erb" />
@@ -39,6 +40,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" afterPath="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" afterPath="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/client.rb" afterPath="$PROJECT_DIR$/app/models/client.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/employee.rb" afterPath="$PROJECT_DIR$/app/models/employee.rb" />
+>>>>>>> Created a relationship between client and employee through account
     </list>
     <ignored path="redrockcapital.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,6 +64,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -203,11 +209,19 @@
             <state relative-caret-position="51">
               <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+      <file leaf-file-name="client.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/client.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+>>>>>>> Created a relationship between client and employee through account
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="_shim.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_shim.html.erb">
@@ -278,6 +292,13 @@
             <state relative-caret-position="85">
               <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+      <file leaf-file-name="employee.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+>>>>>>> Created a relationship between client and employee through account
               <folding />
             </state>
           </provider>
@@ -333,7 +354,6 @@
         <option value="$PROJECT_DIR$/app/models/market_order.rb" />
         <option value="$PROJECT_DIR$/app/models/market_on_close_order.rb" />
         <option value="$PROJECT_DIR$/app/models/hidden_stop_order.rb" />
-        <option value="$PROJECT_DIR$/app/models/client.rb" />
         <option value="$PROJECT_DIR$/app/models/location.rb" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/models/account.rb" />
@@ -342,8 +362,11 @@
 =======
 =======
         <option value="$PROJECT_DIR$/db/migrate/20160423050012_create_orders.rb" />
+<<<<<<< HEAD
 >>>>>>> Added relationship between account and owns stock models
         <option value="$PROJECT_DIR$/app/models/employee.rb" />
+=======
+>>>>>>> Created a relationship between client and employee through account
         <option value="$PROJECT_DIR$/app/models/account.rb" />
         <option value="$PROJECT_DIR$/app/models/owns_stock.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb" />
@@ -351,7 +374,12 @@
 >>>>>>> Added for Employee has_many Accounts relationship
 =======
         <option value="$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb" />
+<<<<<<< HEAD
 >>>>>>> Added relationship between account and owns stock models
+=======
+        <option value="$PROJECT_DIR$/app/models/client.rb" />
+        <option value="$PROJECT_DIR$/app/models/employee.rb" />
+>>>>>>> Created a relationship between client and employee through account
       </list>
     </option>
   </component>
@@ -702,6 +730,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1461387019026" duration="1428000" />
 >>>>>>> Added all of the models
 =======
@@ -713,10 +742,14 @@
 =======
       <workItem from="1461387019026" duration="7107000" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+      <workItem from="1461387019026" duration="7409000" />
+>>>>>>> Created a relationship between client and employee through account
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -741,6 +774,9 @@
 =======
     <option name="totallyTimeSpent" value="18415000" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+    <option name="totallyTimeSpent" value="18717000" />
+>>>>>>> Created a relationship between client and employee through account
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
@@ -1488,6 +1524,7 @@
     </entry>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/controllers/stocks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1504,6 +1541,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Created a relationship between client and employee through account
     <entry file="file://$PROJECT_DIR$/db/migrate/20160416065801_create_locations.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1552,6 +1591,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1580,6 +1620,8 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20160416205145_create_clients.rb">
 >>>>>>> Added for Employee has_many Accounts relationship
 =======
+=======
+>>>>>>> Created a relationship between client and employee through account
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423050012_create_orders.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1597,10 +1639,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        <state relative-caret-position="85">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1613,24 +1655,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045553_create_owns_stocks.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/account.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423045451_create_accounts.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        <state relative-caret-position="68">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160416205145_create_clients.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160423044734_create_employees.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/client.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="0">
 <<<<<<< HEAD
@@ -1643,10 +1702,15 @@
 =======
           <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+>>>>>>> Created a relationship between client and employee through account
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/db/migrate/20160423050908_create_hidden_stop_orders.rb">
@@ -1669,6 +1733,12 @@
         <state relative-caret-position="51">
           <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
 >>>>>>> Added relationship between account and owns stock models
+=======
+    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+>>>>>>> Created a relationship between client and employee through account
           <folding />
         </state>
       </provider>
