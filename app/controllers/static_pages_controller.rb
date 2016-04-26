@@ -4,9 +4,9 @@ class StaticPagesController < ApplicationController
     if signed_in?
       @user = current_user
       if current_user.is_a? Employee
-        redirect_to action: 'employees#home'
+        redirect_to controller: 'employees', action: 'home'
       else
-        redirect_to action: 'clients#home'
+        redirect_to controller: 'clients', action: 'home'
       end
     end
   end

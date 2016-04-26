@@ -6,7 +6,7 @@
         <ul class="nav pull-right">
 
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Orders", orders_path  %></li>
+          <% if current_user %><li><%= link_to 'Orders', orders_path(current_user) %></li><% end %>
           <li><%= link_to "Market", root_path %></li>
           <li><%= link_to "Search", root_path %></li>
           <li><%= link_to "Help", help_path %></li>

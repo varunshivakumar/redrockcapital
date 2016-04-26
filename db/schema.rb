@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(version: 20160423050908) do
 
   create_table "owns_stocks", force: :cascade do |t|
     t.integer  "num_shares",      limit: 4
-    t.decimal  "price_per_share",           precision: 2
+    t.decimal  "price_per_share",           precision: 10
     t.integer  "account_id",      limit: 4
     t.integer  "stock_id",        limit: 4
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "owns_stocks", ["account_id"], name: "index_owns_stocks_on_account_id", using: :btree
@@ -88,9 +88,9 @@ ActiveRecord::Schema.define(version: 20160423050908) do
     t.string   "company_name",    limit: 255
     t.string   "stock_symbol",    limit: 255
     t.string   "stock_type",      limit: 255
-    t.decimal  "price_per_share",             precision: 2
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.decimal  "price_per_share",             precision: 10
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "trailing_stop_orders", force: :cascade do |t|
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160423050908) do
     t.string   "state",           limit: 255
     t.string   "telephone",       limit: 255
     t.string   "email",           limit: 255
+    t.boolean  "is_employee",                   default: false
     t.string   "credit_card_no",  limit: 255
     t.integer  "rating",          limit: 4
     t.text     "bio",             limit: 65535

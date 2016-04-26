@@ -32,6 +32,7 @@ employee1 = Employee.create(
     created_at: "2005-11-01 00:00:00",
     hourly_rate: 60,
 
+    is_employee: true,
     email: 'dsmith@cs.sunysb.edu',
     bio: "Hi I'm Mr. Smith",
 
@@ -51,6 +52,7 @@ employee2 = Employee.create(
     created_at: "2006-02-02 00:00:00",
     hourly_rate: 50,
 
+    is_employee: true,
     email: 'dwarren@cs.sunysb.edu',
     bio: "Hi I'm Mr. Warren",
 

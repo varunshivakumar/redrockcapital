@@ -12,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :telephone
       t.string :email
 
+      t.boolean :is_employee, default: false
       # Client Specific Information
       t.string :credit_card_no
       t.integer :rating
