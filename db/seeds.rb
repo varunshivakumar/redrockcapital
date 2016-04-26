@@ -65,7 +65,7 @@ client1 = Client.create(
     rating: 1
 )
 account1 = Account.create(
-    client_id: account1.id,
+    client_id: client1.id,
     employee_id: employee1.id
 )
 
@@ -174,18 +174,18 @@ ownStock3 = OwnsStock.create( # Client 222-22-2222 owns IBM(50)
 
 order1 = MarketOrder.create(
     num_shares: 75,
-    complete: true,
+    completed: true,
     buy_sell_type: "buy",
     account_id: account4.id,
-    employee_id: account4.employee.id,
+    employee_id: account4.employee_id,
     stock_id: gm_stock.id
 )
 
 order2 = TrailingStopOrder.create(
     num_shares: 10,
-    complete: true,
+    completed: true,
     price_per_share: 90.0,
     account_id: account2.id,
-    employee_id: account2.employee.id,
+    employee_id: account2.employee_id,
     stock_id: ibm_stock.id
 )

@@ -4,8 +4,8 @@ class CreateOwnsStocks < ActiveRecord::Migration
       t.integer :num_shares
       t.decimal :price_per_share, :precision => 2
 
-      t.belongs_to :account_id
-      t.belongs_to :stock_id
+      t.belongs_to :account, index: true
+      t.belongs_to :stock, index: true
 
       t.timestamps null: false
     end

@@ -5,9 +5,9 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :transaction_fee
       t.boolean :completed
 
-      t.belongs_to :account
-      t.belongs_to :employee
-      t.belongs_to :stock
+      t.belongs_to :account, index: true
+      t.belongs_to :employee, index: true
+      t.belongs_to :stock, index: true
 
       # Market Order / Market on Close Order
       t.string :buy_sell_type
