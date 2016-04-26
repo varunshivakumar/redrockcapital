@@ -13,11 +13,6 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
-  has_one :location
-  attr_accessor :address
-  attr_accessor :zipcode
-  attr_accessor :city
-  attr_accessor :state
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

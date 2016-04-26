@@ -4,7 +4,7 @@ class CreateStocks < ActiveRecord::Migration
       t.string :company_name
       t.string :stock_symbol
       t.string :stock_type
-      t.integer :price_per_share
+      t.decimal :price_per_share, :precision => 2
 
       t.timestamps null: false
     end

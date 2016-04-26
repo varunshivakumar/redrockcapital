@@ -6,4 +6,186 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Manager
+manager = Employee.create(
+    last_name: 'Bill',
+    first_name: 'Lumbergh',
+    email: 'admin@gmail.edu',
+    admin: true,
+    bio: "If you could just go and do that, that'd be greaaat",
+    hourly_rate: 100
+)
 
+# Employees
+employee1 = Employee.create(
+    ssn: '123-45-6789',
+    last_name: 'Smith',
+    first_name: 'David',
+    address: '123 College Road',
+    city: 'Stony Brook',
+    state: 'NY',
+    zipcode: '11790',
+    telephone: '516-215-2345',
+    created_at: "2005-11-01 00:00:00",
+    hourly_rate: 60,
+
+    email: 'dsmith@cs.sunysb.edu',
+    bio: "Hi I'm Mr. Smith"
+)
+
+employee2 = Employee.create(
+    ssn: '789-12-3456',
+    last_name: 'Warren',
+    first_name: 'David',
+    address: '456 Sunken Street',
+    city: 'Stony Brook',
+    state: 'NY',
+    zipcode: '11794',
+    telephone: '631-632-9987',
+    created_at: "2006-02-02 00:00:00",
+    hourly_rate: 50,
+
+    email: 'dwarren@cs.sunysb.edu',
+    bio: "Hi I'm Mr. Warren"
+)
+
+# Clients and their respective accounts
+client1 = Client.create(
+    ssn: '111-11-1111',
+    last_name: 'Yang',
+    first_name: 'Shang',
+    address: '123 Success Street',
+    city: 'Stony Brook',
+    state: 'NY',
+    zipcode: '11790',
+    telephone: '516-632-8959',
+    email: 'syang@cs.sunysb.edu',
+
+    credit_card_no: '1234-5678-1234-5678',
+    rating: 1
+)
+account1 = Account.create(
+    client_id: account1.id,
+    employee_id: employee1.id
+)
+
+client2 = Client.create(
+    ssn: '222-22-2222',
+    last_name: 'Du',
+    first_name: 'Victor',
+    address: '456 Fortune Road',
+    city: 'Stony Brook',
+    state: 'NY',
+    zipcode: '11790',
+    telephone: '516-632-4360',
+    email: 'vicdu@cs.sunysb.edu',
+
+    credit_card_no: '5678-1234-5678-1234',
+    rating: 1
+)
+account2 = Account.create(
+    client_id: client2.id,
+    employee_id: employee1.id
+)
+
+
+client3 = Client.create(
+    ssn: '333-33-3333',
+    last_name: 'Smith',
+    first_name: 'John',
+    address: '786 Peace Blvd.',
+    city: 'Los Angeles',
+    state: 'CA',
+    zipcode: '93536',
+    telephone: '315-443-4321',
+    email: 'jsmith@ic.sunysb.edu',
+
+    credit_card_no: '2345-6789-2345-6789',
+    rating: 1
+)
+account3 = Account.create(
+    client_id: client3.id,
+    employee_id: employee2.id
+)
+
+
+client4 = Client.create(
+    ssn: '444-44-4444',
+    last_name: 'Philip',
+    first_name: 'Lewis',
+    address: '135 Knowledge Lane',
+    city: 'Stony Brook',
+    state: 'NY',
+    zipcode: '11794',
+    telephone: '516-666-8888',
+    email: 'pml@cs.sunysb.edu',
+
+    credit_card_no: '6789-2345-6789-2345',
+    rating: 1
+)
+account4 = Account.create(
+    client_id: client4.id,
+    employee_id: employee2.id
+)
+
+# Stocks
+gm_stock = Stock.create(
+    stock_symbol: 'GM',
+    company_name: 'General Motors',
+    stock_type: 'automotive',
+    price_per_share: 34.23,
+    #num_shares: 1000
+)
+ibm_stock = Stock.create(
+    stock_symbol: 'IBM',
+    company_name: 'IBM',
+    stock_type: 'computer',
+    price_per_share: 91.41,
+    #num_shares: 500
+)
+f_stock = Stock.create(
+    stock_symbol: 'F',
+    company_name: 'Ford',
+    stock_type: 'automotive',
+    price_per_share: 9.0,
+    #num_shares: 750
+)
+
+# OwnsStocks
+ownStock1 = OwnsStock.create( # Client 444-44-4444 owns GM(250)
+    num_shares: 250,
+    price_per_share: 32.10,
+    account_id: account4.id,
+    stock_id: gm_stock.id
+)
+
+ownStock2 = OwnsStock.create( # Client 444-44-4444 owns F(100)
+    num_shares: 100,
+    price_per_share: 9.67,
+    account_id: account4.id,
+    stock_id: f_stock.id
+)
+ownStock3 = OwnsStock.create( # Client 222-22-2222 owns IBM(50)
+    num_shares: 50,
+    price_per_share: 89.45,
+    account_id: account2.id,
+    stock_id: ibm_stock.id
+)
+
+order1 = MarketOrder.create(
+    num_shares: 75,
+    complete: true,
+    buy_sell_type: "buy",
+    account_id: account4.id,
+    employee_id: account4.employee.id,
+    stock_id: gm_stock.id
+)
+
+order2 = TrailingStopOrder.create(
+    num_shares: 10,
+    complete: true,
+    price_per_share: 90.0,
+    account_id: account2.id,
+    employee_id: account2.employee.id,
+    stock_id: ibm_stock.id
+)
