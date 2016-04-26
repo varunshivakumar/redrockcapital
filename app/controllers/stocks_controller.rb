@@ -5,7 +5,7 @@ class StocksController < ApplicationController
   end
 
   def show
-    @stock = Stock.find_by(params[:id])
+    @stock = Stock.where(stock_symbol: params[:name]).first
     # Share price history of a given stock over a certain period of time
     @stock_quote = StockQuote::Stock.quote(@stock.stock_symbol)
     # USE THIS URL FOR DATA FIELDS
