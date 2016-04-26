@@ -18,6 +18,10 @@ SampleApp::Application.routes.draw do
   get '/home', to: 'clients#home'
   get '/orders/:id', to: 'clients#orders', as: 'orders'
 
+  ### Stocks Controller ###
+  get '/search', to: 'stocks#search'
+  resources :stocks, param: :name
+
 
   # get '/clienthome/:id', to: 'clients#index', as: 'clienthome'
   # match '/orders', to: 'clients#orders', via: 'get'
