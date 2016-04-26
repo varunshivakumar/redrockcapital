@@ -15,7 +15,7 @@ SampleApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
 
 
-  match '/clienthome', to: 'clients#index', via: 'get'
+  get '/clienthome/:id', to: 'clients#index', as: 'clienthome'
   match '/orders', to: 'clients#orders', via: 'get'
 
 end

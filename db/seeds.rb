@@ -13,7 +13,10 @@ manager = Employee.create(
     email: 'admin@gmail.edu',
     admin: true,
     bio: "If you could just go and do that, that'd be greaaat",
-    hourly_rate: 100
+    hourly_rate: 100,
+
+    password: 'asdfasdf',
+    password_confirmation: 'asdfasdf'
 )
 
 # Employees
@@ -30,7 +33,10 @@ employee1 = Employee.create(
     hourly_rate: 60,
 
     email: 'dsmith@cs.sunysb.edu',
-    bio: "Hi I'm Mr. Smith"
+    bio: "Hi I'm Mr. Smith",
+
+    password: 'asdfasdf',
+    password_confirmation: 'asdfasdf'
 )
 
 employee2 = Employee.create(
@@ -46,7 +52,10 @@ employee2 = Employee.create(
     hourly_rate: 50,
 
     email: 'dwarren@cs.sunysb.edu',
-    bio: "Hi I'm Mr. Warren"
+    bio: "Hi I'm Mr. Warren",
+
+    password: 'asdfasdf',
+    password_confirmation: 'asdfasdf'
 )
 
 # Clients and their respective accounts
@@ -62,7 +71,10 @@ client1 = Client.create(
     email: 'syang@cs.sunysb.edu',
 
     credit_card_no: '1234-5678-1234-5678',
-    rating: 1
+    rating: 1,
+
+    password: 'asdfasdf',
+    password_confirmation: 'asdfasdf'
 )
 account1 = Account.create(
     client_id: client1.id,
@@ -81,7 +93,10 @@ client2 = Client.create(
     email: 'vicdu@cs.sunysb.edu',
 
     credit_card_no: '5678-1234-5678-1234',
-    rating: 1
+    rating: 1,
+
+    password: 'asdfasdf',
+    password_confirmation: 'asdfasdf'
 )
 account2 = Account.create(
     client_id: client2.id,
@@ -101,7 +116,10 @@ client3 = Client.create(
     email: 'jsmith@ic.sunysb.edu',
 
     credit_card_no: '2345-6789-2345-6789',
-    rating: 1
+    rating: 1,
+
+    password: 'asdfasdf',
+    password_confirmation: 'asdfasdf'
 )
 account3 = Account.create(
     client_id: client3.id,
@@ -121,7 +139,10 @@ client4 = Client.create(
     email: 'pml@cs.sunysb.edu',
 
     credit_card_no: '6789-2345-6789-2345',
-    rating: 1
+    rating: 1,
+
+    password: 'asdfasdf',
+    password_confirmation: 'asdfasdf'
 )
 account4 = Account.create(
     client_id: client4.id,
@@ -150,6 +171,26 @@ f_stock = Stock.create(
     price_per_share: 9.0,
     #num_shares: 750
 )
+stock = StockQuote::Stock.quote('TSLA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('INTC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'computer', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('FB');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('GOOG');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('AAPL');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('MSFT');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('AMZN');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('EBAY');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('TWTR');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('NFLX');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('YHOO');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('COF');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('JPM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('BAC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('WFC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('DIS');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'film', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('IMAX');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'film', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('ATVI');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('EA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask)
+stock = StockQuote::Stock.quote('ZNGA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask)
 
 # OwnsStocks
 ownStock1 = OwnsStock.create( # Client 444-44-4444 owns GM(250)
