@@ -9,6 +9,12 @@ class CreateOrders < ActiveRecord::Migration
       t.belongs_to :employee
       t.belongs_to :stock
 
+      # Market Order / Market on Close Order
+      t.string :buy_sell_type
+
+      # Hidden Stop Order / Trailing Stop Order
+      t.integer :price_per_share
+
       t.timestamps null: false
     end
   end

@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20160423050908) do
   add_index "accounts", ["employee_id_id"], name: "index_accounts_on_employee_id_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
+    t.string   "credit_card_no", limit: 255
     t.integer  "rating",         limit: 4
-    t.integer  "credit_card_no", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -43,18 +43,6 @@ ActiveRecord::Schema.define(version: 20160423050908) do
     t.datetime "updated_at",                null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "address",    limit: 255
-    t.string   "zipcode",    limit: 255
-    t.string   "city",       limit: 255
-    t.string   "state",      limit: 255
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
-
   create_table "market_on_close_orders", force: :cascade do |t|
     t.string   "buy_sell_type", limit: 255
     t.datetime "created_at",                null: false
@@ -69,29 +57,31 @@ ActiveRecord::Schema.define(version: 20160423050908) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "num_shares",      limit: 4
-    t.integer  "price_per_share", limit: 4
     t.integer  "transaction_fee", limit: 4
     t.boolean  "completed"
+    t.integer  "account_id",      limit: 4
+    t.integer  "employee_id",     limit: 4
+    t.integer  "stock_id",        limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
   create_table "owns_stocks", force: :cascade do |t|
-    t.integer  "num_shares",    limit: 4
-    t.integer  "bought_price",  limit: 4
-    t.integer  "account_id_id", limit: 4
-    t.integer  "stock_id_id",   limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "num_shares",      limit: 4
+    t.decimal  "price_per_share",           precision: 2
+    t.integer  "account_id_id",   limit: 4
+    t.integer  "stock_id_id",     limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "stocks", force: :cascade do |t|
     t.string   "company_name",    limit: 255
     t.string   "stock_symbol",    limit: 255
     t.string   "stock_type",      limit: 255
-    t.integer  "price_per_share", limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.decimal  "price_per_share",             precision: 2
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "trailing_stop_orders", force: :cascade do |t|
@@ -101,9 +91,13 @@ ActiveRecord::Schema.define(version: 20160423050908) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",      limit: 255
-    t.string   "last_name",       limit: 255
     t.string   "ssn",             limit: 255
+    t.string   "last_name",       limit: 255
+    t.string   "first_name",      limit: 255
+    t.string   "address",         limit: 255
+    t.string   "zipcode",         limit: 255
+    t.string   "city",            limit: 255
+    t.string   "state",           limit: 255
     t.string   "telephone",       limit: 255
     t.string   "email",           limit: 255
     t.datetime "created_at"
