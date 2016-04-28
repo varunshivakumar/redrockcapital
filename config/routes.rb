@@ -19,11 +19,11 @@ SampleApp::Application.routes.draw do
   get '/client/:id/orders', to: 'clients#orders', as: 'orders'
 
   ### Stocks Controller ###
-  get '/search', to: 'stocks#search'
-  resources :stocks, param: :name
+  get '/stocks', to: 'stocks#stocks', as: 'stocks'
+  resources :stocks, param: :name, only: [:show]
 
   ### Employees Controller ###
-  get '/ehome', to: 'employees#home', as: 'home'
+  # get '/ehome', to: 'employees#home', as: 'home'
   # get '/home', to: 'employees#employee_home' , as: 'emphome'
 
   # get '/clienthome/:id', to: 'clients#index', as: 'clienthome'

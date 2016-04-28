@@ -22,7 +22,6 @@ class ClientsController < ApplicationController
   def orders
     @client = Client.find(params[:id])
 
-
     # Client:(5), Manager: (6)
     # History of all current and past orders a customer has placed
     @account = Account.where(client_id: @client.id)
