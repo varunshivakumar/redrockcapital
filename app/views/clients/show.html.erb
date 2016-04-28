@@ -1,0 +1,9 @@
+<% if current_user?(@user) %>
+    <h1>Welcome <%= @user.first_name %></h1>
+<% else %>
+    <h1>Welcome to <%= @user.first_name %>'s Profile</h1>
+<% end %>
+
+<h2>Clients Show Page</h2>
+<!-- This it the link to make a new order -->
+<%= link_to 'Buy or Sell Stock', orders_path(current_user) %>

@@ -21,6 +21,9 @@ gem 'bootstrap-sass'
 # Pagination
 gem 'will_paginate'
 
+# Font Awesome
+gem "font-awesome-rails"
+
 # For stock information
 gem "stock_quote"
 

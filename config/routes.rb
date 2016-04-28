@@ -15,13 +15,16 @@ SampleApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
 
   ### Client Page ###
-  get '/home', to: 'clients#home'
+  get '/client/:id', to: 'clients#show', as: 'client'
   get '/orders/:id', to: 'clients#orders', as: 'orders'
 
   ### Stocks Controller ###
   get '/search', to: 'stocks#search'
   resources :stocks, param: :name
 
+  ### Employees Controller ###
+  get '/ehome', to: 'employees#home', as: 'home'
+  # get '/home', to: 'employees#employee_home' , as: 'emphome'
 
   # get '/clienthome/:id', to: 'clients#index', as: 'clienthome'
   # match '/orders', to: 'clients#orders', via: 'get'

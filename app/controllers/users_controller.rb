@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:id])
+    redirect_to controller: :client, action: :home
   end
 
   def new

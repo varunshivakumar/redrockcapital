@@ -1,9 +1,10 @@
 class ClientsController < ApplicationController
 
-  def home
+  def show
+    @user = Client.find(params[:id])
     # A customer's current stock holdings
-    account = Account.where(client_id: current_user.id)
-    @stocks = OwnsStock.where(account_id: account.first.id)
+    @account = Account.where(client_id: @user.id)
+    @stocks = OwnsStock.where(account_id: @account.first.id)
 
     # Personalized stock suggestion list
     sorted_stocks = @stocks.sort {|x, y| y.num_shares <=> x.num_shares}
