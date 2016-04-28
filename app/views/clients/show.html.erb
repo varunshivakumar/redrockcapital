@@ -1,7 +1,7 @@
-<% if current_user?(@user) %>
-    <h1>Welcome <%= @user.first_name %></h1>
+<% if current_user?(@client) %>
+    <h1>Welcome <%= @client.first_name %></h1>
 <% else %>
-    <h1>Welcome to <%= @user.first_name %>'s Profile</h1>
+    <h1>Welcome to <%= @client.first_name %>'s Profile</h1>
 <% end %>
 
 <h2>Clients Show Page</h2>

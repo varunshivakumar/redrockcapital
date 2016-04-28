@@ -1,11 +1,14 @@
 class ClientsController < ApplicationController
 
   def show
-    @user = Client.find(params[:id])
+    @client = Client.find(params[:id])
+
+    # Client:(1)
     # A customer's current stock holdings
-    @account = Account.where(client_id: @user.id)
+    @account = Account.where(client_id: @client.id)
     @stocks = OwnsStock.where(account_id: @account.first.id)
 
+    # Client:(9)
     # Personalized stock suggestion list
     sorted_stocks = @stocks.sort {|x, y| y.num_shares <=> x.num_shares}
     most_owned_stock = Stock.find(sorted_stocks.first.stock_id)
@@ -13,12 +16,17 @@ class ClientsController < ApplicationController
 
     # Send request to employee to order stock
     # Make an order request button
+
   end
 
   def orders
+    @client = Client.find(params[:id])
+
+
+    # Client:(5), Manager: (6)
     # History of all current and past orders a customer has placed
-    account = Account.where(client_id: current_user.id)
-    @orders = Order.where(account_id: account.first.id)
+    @account = Account.where(client_id: @client.id)
+    @orders = Order.where(account_id: @account.first.id)
 
     # Send request to employee to order stock
     # Make an order request button

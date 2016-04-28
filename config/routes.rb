@@ -16,7 +16,7 @@ SampleApp::Application.routes.draw do
 
   ### Client Page ###
   get '/client/:id', to: 'clients#show', as: 'client'
-  get '/orders/:id', to: 'clients#orders', as: 'orders'
+  get '/client/:id/orders', to: 'clients#orders', as: 'orders'
 
   ### Stocks Controller ###
   get '/search', to: 'stocks#search'
