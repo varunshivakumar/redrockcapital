@@ -86,12 +86,13 @@ ActiveRecord::Schema.define(version: 20160423050908) do
   add_index "owns_stocks", ["stock_id"], name: "index_owns_stocks_on_stock_id", using: :btree
 
   create_table "stocks", force: :cascade do |t|
-    t.string   "company_name",    limit: 255
-    t.string   "stock_symbol",    limit: 255
-    t.string   "stock_type",      limit: 255
-    t.decimal  "price_per_share",             precision: 10
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.string   "company_name",     limit: 255
+    t.string   "stock_symbol",     limit: 255
+    t.string   "stock_type",       limit: 255
+    t.decimal  "price_per_share",              precision: 10
+    t.integer  "total_num_shares", limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   create_table "trailing_stop_orders", force: :cascade do |t|
