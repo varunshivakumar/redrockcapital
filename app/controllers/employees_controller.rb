@@ -2,6 +2,16 @@ class EmployeesController < ApplicationController
 
   def employee_home
 
+
+    @test = Employee.all
+
+    # @test = Employee.where(id: params[:id]) if params[:id].present?
+
+    @test = @test.search(params[:search]) if params[:search].present?
+
+
+
+
     @employee = Employee.find(params[:id])
     # Employee:(1)
     # Record an order
@@ -22,6 +32,8 @@ class EmployeesController < ApplicationController
     # TODO: Make the stock suggestions a helper method
 
     # TODO: Add a list of past/current/pending orders
+
+
   end
 
   def manager_home

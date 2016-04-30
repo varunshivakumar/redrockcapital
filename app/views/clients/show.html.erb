@@ -7,3 +7,13 @@
 
 <!-- This it the link to make a new order -->
 <%= link_to 'Buy or Sell Stock', orders_path(current_user) %>
+
+<!-- TODO: set up if manager or employee is logged view button-->
+
+<br>
+
+<%= link_to edit_user_path(params[:id]) do %>
+
+    <button class="btn btn-info">Edit User Info</button>
+<% end %>
+
