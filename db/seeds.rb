@@ -12,6 +12,7 @@ manager = Employee.create(
     first_name: 'Lumbergh',
     email: 'admin@gmail.edu',
     admin: true,
+    is_employee: true,
     bio: "If you could just go and do that, that'd be greaaat",
     hourly_rate: 100,
 
@@ -221,7 +222,8 @@ order1 = MarketOrder.create(
     buy_sell_type: "buy",
     account_id: account4.id,
     employee_id: account4.employee_id,
-    stock_id: gm_stock.id
+    stock_id: gm_stock.id,
+    order_type: 0
 )
 
 order2 = TrailingStopOrder.create(
@@ -230,5 +232,6 @@ order2 = TrailingStopOrder.create(
     price_per_share: 90.0,
     account_id: account2.id,
     employee_id: account2.employee_id,
-    stock_id: ibm_stock.id
+    stock_id: ibm_stock.id,
+    order_type: 3
 )

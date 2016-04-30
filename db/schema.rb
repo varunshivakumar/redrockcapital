@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160423050908) do
     t.integer  "account_id",      limit: 4
     t.integer  "employee_id",     limit: 4
     t.integer  "stock_id",        limit: 4
+    t.integer  "order_type",      limit: 4
     t.string   "buy_sell_type",   limit: 255
     t.integer  "price_per_share", limit: 4
     t.datetime "created_at",                  null: false

@@ -14,8 +14,8 @@ class ClientsController < ApplicationController
     most_owned_stock = Stock.find(sorted_stocks.first.stock_id)
     @stk_suggestions = Stock.where(stock_type: most_owned_stock.stock_type)
 
-    # Send request to employee to order stock
-    # Make an order request button
+    # TODO: Send request to employee to order stock
+    # TODO: Make an order request button
 
   end
 
@@ -24,11 +24,12 @@ class ClientsController < ApplicationController
 
     # Client:(5), Manager: (6)
     # History of all current and past orders a customer has placed
+    # Produce a list of orders by stock symbol or customer name
     @account = Account.where(client_id: @client.id)
     @orders = Order.where(account_id: @account.first.id)
 
-    # Send request to employee to order stock
-    # Make an order request button
+    # TODO: Send request to employee to order stock
+    # TODO: Make an order request button
   end
 
 end

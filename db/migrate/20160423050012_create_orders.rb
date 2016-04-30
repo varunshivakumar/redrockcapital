@@ -9,6 +9,9 @@ class CreateOrders < ActiveRecord::Migration
       t.belongs_to :employee, index: true
       t.belongs_to :stock, index: true
 
+      # 0 - Market, 1 - Market on Close, 2 - Hidden Stop, 3 - Trailing Stop
+      t.integer :order_type
+
       # Market Order / Market on Close Order
       t.string :buy_sell_type
 
