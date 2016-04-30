@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-
+  include Helper
   def show
     @client = Client.find(params[:id])
 
@@ -10,9 +10,7 @@ class ClientsController < ApplicationController
 
     # Client:(9)
     # Personalized stock suggestion list
-    sorted_stocks = @stocks.sort {|x, y| y.num_shares <=> x.num_shares}
-    most_owned_stock = Stock.find(sorted_stocks.first.stock_id)
-    @stk_suggestions = Stock.where(stock_type: most_owned_stock.stock_type)
+    @stk_suggestions = stock_suggestions_client(@client.id)
 
     # TODO: Send request to employee to order stock
     # TODO: Make an order request button
