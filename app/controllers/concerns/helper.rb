@@ -70,9 +70,11 @@ module Helper
 
   # Stock revenue
   def stock_revenue(stock_symbol)
-    stock_quote = StockQuote::Stock.quote(stock_symbol)
+    stock_qoute = StockQuote::Stock.quote(stock_symbol)
     stock = Stock.where(stock_symbol: stock_symbol).first
-    stock.total_num_shares * stock_quote.change
+    current_price = stock_qoute.ask
+    original_price = StockHistory.where(stock_id: stock.id).order("created_at DESC").first.price_per_share
+    stock.total_num_shares * (current_price - original_price)
   end
 
   # Stock type revenue
@@ -86,14 +88,11 @@ module Helper
 
   # Client Revenue
   def client_revenue(client_id)
-    client = Client.find(client_id)
-    buy_orders = Order.where(client_id: client_id, buy_sell_type: "buy")
-    sell_orders = Order.where(client_id: client_id, buy_sell_type: "sell")
-
-    spent = 0
-
-
-
-
+    revenue = 0
+    sell_orders = Order.where(client_id: client_id, buy_sell_type: "sell", completed: true)
+    for order in sell_orders
+      revenue += (order.num_shares * order.price_per_share) # Subtract transaction fee
+    end
+    revenue
   end
 end

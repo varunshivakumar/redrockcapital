@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
     # Client:(1)
     # A customer's current stock holdings
     @account = Account.where(client_id: @client.id)
-    @stocks = OwnsStock.where(account_id: @account.first.id)
+    @owns_stocks = OwnsStock.where(account_id: @account.first.id)
 
     # Client:(9)
     # Personalized stock suggestion list
@@ -14,6 +14,9 @@ class ClientsController < ApplicationController
 
     # TODO: Send request to employee to order stock
     # TODO: Make an order request button
+    # <!-- This it the link to make a new order -->
+    # <%= link_to 'Buy or Sell Stock', orders_path(current_user) %>
+
 
   end
 
@@ -25,6 +28,8 @@ class ClientsController < ApplicationController
     # Produce a list of orders by stock symbol or customer name
     @account = Account.where(client_id: @client.id)
     @orders = Order.where(account_id: @account.first.id)
+    @active_orders = Order.where(account_id: @account.first.id, completed: false)
+    @completed_orders = Order.where(account_id: @account.first.id, completed: true)
 
     # TODO: Send request to employee to order stock
     # TODO: Make an order request button

@@ -21,7 +21,7 @@ module SessionsHelper
   end
 
   def current_user?(user)
-    user.attributes == current_user.attributes
+    user.attributes == current_user.attributes || user == current_user
   end
 
   def signed_in_user

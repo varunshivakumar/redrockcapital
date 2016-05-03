@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423050908) do
+ActiveRecord::Schema.define(version: 20160430184215) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "client_id",   limit: 4
@@ -78,12 +78,21 @@ ActiveRecord::Schema.define(version: 20160423050908) do
     t.decimal  "price_per_share",           precision: 10
     t.integer  "account_id",      limit: 4
     t.integer  "stock_id",        limit: 4
+    t.integer  "order_id",        limit: 4
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
 
   add_index "owns_stocks", ["account_id"], name: "index_owns_stocks_on_account_id", using: :btree
+  add_index "owns_stocks", ["order_id"], name: "index_owns_stocks_on_order_id", using: :btree
   add_index "owns_stocks", ["stock_id"], name: "index_owns_stocks_on_stock_id", using: :btree
+
+  create_table "stock_histories", force: :cascade do |t|
+    t.integer  "stock_id",        limit: 4
+    t.decimal  "price_per_share",           precision: 10
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.string   "company_name",     limit: 255

@@ -1,9 +1,33 @@
-<% if current_user?(@client) %>
-    <h1>Welcome <%= @client.first_name %></h1>
-<% else %>
-    <h1>Welcome to <%= @client.first_name %>'s</h1>
-<% end %>
-<h2>Clients Home Page</h2>
+<!-- Clients Home Page -->
+<div class="container">
+  <% if current_user?(@client) %>
+      <h1>Welcome <%= @client.first_name %></h1>
+  <% else %>
+      <h1>Welcome to <%= @client.first_name %>'s</h1>
+  <% end %>
+  <h2> Your Stock Holdings:</h2>
+  <div  class="row">
+    <!-- References owns_stock table -->
+    <% @owns_stocks.each do |stoc| %>
+        <div class="stock span3" style="">
+          <% stock = Stock.find(stoc.stock_id) %>
+          <% stock_quote = StockQuote::Stock.quote(stock.stock_symbol) %>
+          <h3><%= stock.stock_symbol %></h3>
+          <h5><%= stock_quote.name %></h5>
+          Holdings: <%= stockshares = stoc.num_shares %> @ $<%= stockprice = stoc.price_per_share %><br>
 
-<!-- This it the link to make a new order -->
-<%= link_to 'Buy or Sell Stock', orders_path(current_user) %>
+          <%= stock.stock_symbol %> current value: <%= currentprice = stock_quote.ask %><br>
+
+          <!-- calculate the net loss or gain from a stock holding -->
+          <% total = stockshares * currentprice - stockshares * stockprice%>
+          <% total > 0 ? color="color: green;": color="color: red;"%>
+
+          NET: <span style="<%=color%>">$<%= total.round(3) %></span><br>
+          <br>
+          <%= link_to stock_path(stock.stock_symbol) do %>
+              <button type="button" class="btn btn-primary">View Stock</button>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>
