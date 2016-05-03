@@ -2,36 +2,46 @@
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 <script>
   $(function () {
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=<%= stock_symbol %>-c.json&callback=?', function (data) {
-      if (data!=null){
-        // Create the chart
-        $('#stock_chart').highcharts('StockChart', {
-          rangeSelector : {
-            selected : 1
-          },
 
-          title : {
-            text : 'AAPL Stock Price'
-          },
+    $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent("select Date, Open, High, Low, Close from csv where url='http://real-chart.finance.yahoo.com/table.csv?s=<%=stock_symbol%>&d=2&e=4&f=2015&g=d&a=2&b=27&c=2014&ignore=.csv' and columns='Date,Open,High,Low,Close,Volume,Adj Close'") + "&format=json&callback=?", function (data) {
 
-          series : [{
-            name : 'AAPL Stock Price',
-            data : data,
-            marker : {
-              enabled : true,
-              radius : 3
-            },
-            shadow : true,
-            tooltip : {
-              valueDecimals : 2
-            }
-          }]
-        });
-      }
-      else{
-        $('#stock_chart').html("");
-      }
+      //console.log(data.query.results);
+      var data = data.query.results.row;
+      data = data.splice(1, data.length);
+      //console.log(data);
+
+      var processedData = [];
+      $(data).each(function(index, value) {
+        //console.log(Date.parse(value.Date).getTime());
+        //console.log(Date.parse(value.Date));
+        processedData.push([Date.parse(value.Date), parseFloat(value.Open), parseFloat(value.High), parseFloat(value.Low), parseFloat(value.Close)]);
+      });
+      processedData = processedData.reverse();
+      //console.log(processedData);
+
+      // Create the chart
+      $('#stock_chart').highcharts('StockChart', {
+
+
+        rangeSelector : {
+          selected : 1
+        },
+
+        title : {
+          text : '<%=stock_symbol%> Stock Price'
+        },
+
+        series : [{
+          type : 'candlestick',
+          name : '<%=stock_symbol%>  Stock Price',
+          data : processedData,
+          tooltip: {
+            valueDecimals: 2
+          }
+        }]
+      });
     });
+
   });
 
 </script>

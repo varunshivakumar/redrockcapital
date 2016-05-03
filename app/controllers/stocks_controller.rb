@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-
+  include Helper
   def show
     @stock = Stock.where(stock_symbol: params[:name]).first
 
@@ -10,10 +10,8 @@ class StocksController < ApplicationController
     # USE THIS URL FOR DATA FIELDS
     # https://github.com/tyrauber/stock_quote
 
-    # Client:(4), Manager:(6)
-    # Most recent orders of that stock
+    # Manager:(6)
     # Produce a list of orders by stock symbol or by customer name
-    # TODO: ?- Make a see orders button if you want a separate orders page
     @orders = Order.where(stock_id: @stock.id).order("created_at DESC")
   end
 
@@ -30,13 +28,8 @@ class StocksController < ApplicationController
 
     # Client:(6)
     # Stocks available of a particular type and most-recent order info
-    # TODO: Create a method in model to find most-recent order info for types of stocks !!!
-    @stock_types = Array.new
-    for stock in @stocks
-      unless @stock_types.include? stock.stock_type
-        @stock_types.push(stock.stock_type)
-      end
-    end
+    # call 'stock_type_orders" to find most-recent order info for types of stocks !!!
+    @stock_types = stock_types
 
     # Client:(7)
     # TODO: Stocks available w/ a particular keyword or set of keywords in the stock name (searchbar)
@@ -44,31 +37,27 @@ class StocksController < ApplicationController
 
     # Client:(8)
     # Best-seller list of stocks
-    orders = Order.where(completed: true, order_type: [0 ,1], buy_sell_type: "buy")
-    stocks_traded = Array.new(Stock.count, 0)
-    for order in orders
-      id = order.stock_id
-      if stocks_traded[id] == 0
-        stocks_traded[id] = order.num_shares
-      else
-        stocks_traded[id] += order.num_shares
-      end
-    end
-    @best_seller_stocks = stocks_traded.sort {|x, y| y <=> x}
+    @best_seller_stocks = best_seller_stocks
 
     # Manager:(9)
     # Produce a list of most actively traded stocks
-    orders = Order.where(completed: true)
-    stocks_traded = Array.new(Stock.count, 0)
-    for order in orders
-      id = order.stock_id
-      if stocks_traded[id] == 0
-        stocks_traded[id] = order.num_shares
-      else
-        stocks_traded[id] += order.num_shares
-      end
-    end
-    @most_actively_traded_stocks = stocks_traded.sort {|x, y| y <=> x}
+    @most_actively_traded_stocks = most_actively_traded_stocks
 
+  end
+
+  def update
+    @stock = Stock.find(params[:name].to_i)
+    if @stock.update_attributes(stock_params)
+      flash[:success] = "Profile updated"
+      redirect_to :back
+    else
+      render 'root_path'
+    end
+  end
+
+  private
+
+  def stock_params
+    params.require(:stock).permit(:price_per_share)
   end
 end

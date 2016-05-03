@@ -6,17 +6,16 @@
         <ul class="nav pull-right">
 
           <li><%= link_to "Home", root_path %></li>
-          <% if @client %><li><%= link_to "Orders", orders_path(@client) %></li><% end %>
+          <% unless current_user.nil? || current_user.is_employee%><li><%= link_to "Orders", clients_orders_path(current_user) %></li><% end %>
           <li><%= link_to "Stocks", stocks_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-
+          <% if true %><li><%= link_to "Users", users_path %></li><% end %>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
+                <li><%= link_to "Help", help_path %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>

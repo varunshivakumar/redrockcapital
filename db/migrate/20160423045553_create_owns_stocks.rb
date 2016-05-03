@@ -6,6 +6,7 @@ class CreateOwnsStocks < ActiveRecord::Migration
 
       t.belongs_to :account, index: true
       t.belongs_to :stock, index: true
+      t.belongs_to :order, index: true
 
       t.timestamps null: false
     end

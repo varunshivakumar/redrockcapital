@@ -1,5 +1,37 @@
 <h1><%= @client.first_name %>'s Order Page</h1>
 <h2>Clients Order Page</h2>
 
-<!-- This it the link to make a new order -->
-<%= link_to 'Buy or Sell Stock', orders_path(current_user) %>
+<div class="container-fluid">
+  <!-- Active Orders -->
+  <h3>Current Orders: <%= @active_orders.size %></h3>
+  <% @active_orders.each do |ord| %>
+      <div class="span3">
+        <% stock = Stock.find(ord.stock_id) %>
+        <%= stock.company_name %>
+        <br>
+        Number of Shares: <%= ord.num_shares %>
+        <br>
+        <%= link_to stock_path(stock.stock_symbol)  do %>
+            <button type="button" class="btn btn-primary">View Stock</button>
+        <% end %>
+      </div>
+  <% end %>
+
+  <!-- Separator and then orders past -->
+  <hr style="margin: 0 auto">
+
+  <!-- Completed Orders -->
+  <h3>Completed Orders: <%= @completed_orders.size %></h3>
+  <% @completed_orders.each do |ord| %>
+      <div class="span3">
+        <% stock = Stock.find(ord.stock_id) %>
+        <%= stock.company_name %>
+        <br>
+        Number of Shares: <%= ord.num_shares %>
+        <br>
+        <%= link_to stock_path(stock.stock_symbol)  do %>
+            <button type="button" class="btn btn-primary">View Stock</button>
+        <% end %>
+      </div>
+  <% end %>
+</div>
