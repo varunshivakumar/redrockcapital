@@ -72,9 +72,9 @@ module Helper
   def stock_revenue(stock_symbol)
     stock_qoute = StockQuote::Stock.quote(stock_symbol)
     stock = Stock.where(stock_symbol: stock_symbol).first
-    current_price = stock_qoute.ask
-    original_price = StockHistory.where(stock_id: stock.id).order("created_at DESC").first.price_per_share
-    stock.total_num_shares * (current_price - original_price)
+    orders = Order.where()
+    revenue = 0
+
   end
 
   # Stock type revenue

@@ -1,2 +1,16 @@
 <h1>Stocks Page</h1>
-<h2>Search for stocks</h2>
+ <h2>Search for stocks</h2>
+<%= form_tag stocks_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :stock_symbol => nil %>
+    </p>
+<% end %>
+
+<div>
+  <% @stocks.each do |s| %>
+      <%= s.stock_symbol%>
+      <br>
+  <% end %>
+</div>
+

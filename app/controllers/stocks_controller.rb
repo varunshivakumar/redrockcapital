@@ -18,7 +18,7 @@ class StocksController < ApplicationController
   def stocks
     # Manager:(4)
     # Produce a comprehensive listing of stocks
-    @stocks = Stock.all
+    @all_stocks = Stock.all
 
     # Manager:(1)
     # Set the share price of a stock(for simulating market fluctuations in a stock's share price)
@@ -34,6 +34,10 @@ class StocksController < ApplicationController
     # Client:(7)
     # TODO: Stocks available w/ a particular keyword or set of keywords in the stock name (searchbar)
     # and most recent order info ? of those stocks, of each stock?
+    @stocks = @all_stocks.search(params[:search]) if params[:search].present?
+    if @stocks.nil?
+      @stocks = Stock.all
+    end
 
     # Client:(8)
     # Best-seller list of stocks

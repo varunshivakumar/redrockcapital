@@ -180,24 +180,27 @@ stock = StockQuote::Stock.quote('ZNGA');Stock.create(stock_symbol: stock.symbol,
 
 # OwnsStocks
 =begin
+gm_stock_id = Stock.where(stock_symbol: 'GM').first.id
+f_stock_id = Stock.where(stock_symbol: 'F').first.id
+ibm_stock_id = Stock.where(stock_symbol: 'IBM').first.id
 ownStock1 = OwnsStock.create( # Client 444-44-4444 owns GM(250)
     num_shares: 250,
     price_per_share: 32.10,
     account_id: account4.id,
-    stock_id: gm_stock.id
+    stock_id: gm_stock_id
 )
 
 ownStock2 = OwnsStock.create( # Client 444-44-4444 owns F(100)
     num_shares: 100,
     price_per_share: 9.67,
     account_id: account4.id,
-    stock_id: f_stock.id
+    stock_id: f_stock_id
 )
 ownStock3 = OwnsStock.create( # Client 222-22-2222 owns IBM(50)
     num_shares: 50,
     price_per_share: 89.45,
     account_id: account2.id,
-    stock_id: ibm_stock.id
+    stock_id: ibm_stock_id
 )
 order1 = MarketOrder.create(
     num_shares: 75,
@@ -205,7 +208,7 @@ order1 = MarketOrder.create(
     buy_sell_type: "buy",
     account_id: account4.id,
     employee_id: account4.employee_id,
-    stock_id: gm_stock.id,
+    stock_id: gm_stock_id,
     order_type: 0
 )
 
@@ -215,7 +218,7 @@ order2 = TrailingStopOrder.create(
     price_per_share: 90.0,
     account_id: account2.id,
     employee_id: account2.employee_id,
-    stock_id: ibm_stock.id,
+    stock_id: ibm_stock_id,
     order_type: 3
 )
 =end

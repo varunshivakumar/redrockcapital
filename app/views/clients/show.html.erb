@@ -1,4 +1,9 @@
 <!-- Clients Home Page -->
+
+<%= link_to edit_user_path(@client) do %>
+    <button class="btn btn-info">Edit User Info</button>
+<% end %>
+
 <div class="container">
   <% if current_user?(@client) %>
       <h1>Welcome <%= @client.first_name %></h1>
