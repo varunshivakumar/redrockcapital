@@ -1,2 +1,28 @@
 <h1>Manager Home Page</h1>
 <h2>Welcome <%= current_user.first_name %></h2>
+
+<div class="container">
+  <h3>Sales report</h3>
+  <hr>
+
+  <% @sales_report.each do |o| %>
+
+
+      <div class="span3">
+        <% user = Client.find(Account.find(o.account_id).client_id) %>
+        Client: <%= user.last_name%>, <%= user.first_name%> <br>
+        Number of shares: <%= o.num_shares %><br>
+        Transaction Fee: $<%= o.transaction_fee ? o.transaction_fee : '0'%><br>
+
+        <% o.completed ?  @completed='color: green' : @completed='color: red' %>
+        Order Completed: <span style="<%=@completed%>">  <%= o.completed %></span>  <br>
+        <% employee =  Employee.find(o.employee_id) %>
+        Employee: <%= employee.last_name%>, <%= employee.first_name%> <br>
+      </div>
+
+  <% end %>
+
+
+
+
+</div>

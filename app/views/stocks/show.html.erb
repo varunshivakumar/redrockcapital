@@ -4,6 +4,21 @@
 
   <%= render 'shared/stock_chart', stock_symbol: @stock.stock_symbol %>
   <div id="stock_chart"></div>
+
+  <!--TODO: if Manager is logged in -->
+  <div id="edit-stock">
+
+      <%= form_for(@stock) do |f| %>
+
+        Price Per Share:
+        <%= f.number_field :price_per_share%>
+
+        <%= f.submit "update", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+
+
+
   <h4>Orders with these stocks:</h4>
   <hr>
   <% @orders.each do |o|%>

@@ -1,2 +1,49 @@
 <h1>Employee Home Page</h1>
-<h2>Welcome <%= current_user.first_name %></h2>
+<h3>Welcome <%= current_user.first_name %></h3>
+
+
+
+<!--@employee is an employee -->
+<!-- @emails is mailing list-->
+<div class="container-fluid">
+
+  <h2>Current mailing list</h2>
+  <hr>
+  <br>
+
+
+
+  <%= form_tag employee_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :first_name => nil %>
+      </p>
+  <% end %>
+
+<div class="malingList">
+  <% @test.each do |e| %>
+
+      <div class="employee-row row-fluid">
+        <div class="span2">
+
+          <%= e.first_name %> <%=e.last_name%>
+        </div>
+        <div class="span2">
+          <%= e.email %>
+        </div>
+
+        <div class="span2">
+          <%= link_to edit_user_path(e.id) do %>
+
+          <button class="btn btn-primary">Edit</button>
+          <% end %>
+        </div>
+
+
+      </div>
+
+
+  <%end%>
+
+</div>
+</div>

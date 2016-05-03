@@ -153,33 +153,49 @@ account4 = Account.create(
 )
 
 # Stocks
-max_num_shares = 10000
-stock = StockQuote::Stock.quote('F');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('GM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('TSLA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('INTC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'computer', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('IBM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'computer', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('FB');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('GOOG');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('AAPL');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('MSFT');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('AMZN');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('EBAY');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('TWTR');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('NFLX');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('YHOO');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('COF');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('JPM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('BAC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('WFC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('DIS');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'film', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('IMAX');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'film', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('ATVI');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('EA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('ZNGA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: max_num_shares)
+gm_stock = Stock.create(
+    stock_symbol: 'GM',
+    company_name: 'General Motors',
+    stock_type: 'automotive',
+    price_per_share: 34.23,
+    total_num_shares: 1000
+)
+ibm_stock = Stock.create(
+    stock_symbol: 'IBM',
+    company_name: 'IBM',
+    stock_type: 'computer',
+    price_per_share: 91.41,
+    total_num_shares: 500
+)
+f_stock = Stock.create(
+    stock_symbol: 'F',
+    company_name: 'Ford',
+    stock_type: 'automotive',
+    price_per_share: 9.0,
+    total_num_shares: 750
+)
+stock = StockQuote::Stock.quote('TSLA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('INTC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'computer', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('FB');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('GOOG');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('AAPL');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('MSFT');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('AMZN');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('EBAY');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('TWTR');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('NFLX');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('YHOO');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'web', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('COF');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('JPM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('BAC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('WFC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'bank', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('DIS');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'film', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('IMAX');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'film', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('ATVI');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('EA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: 1000)
+stock = StockQuote::Stock.quote('ZNGA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: 1000)
 
 # OwnsStocks
-=begin
 ownStock1 = OwnsStock.create( # Client 444-44-4444 owns GM(250)
     num_shares: 250,
     price_per_share: 32.10,
@@ -199,6 +215,7 @@ ownStock3 = OwnsStock.create( # Client 222-22-2222 owns IBM(50)
     account_id: account2.id,
     stock_id: ibm_stock.id
 )
+
 order1 = MarketOrder.create(
     num_shares: 75,
     completed: true,
@@ -218,4 +235,3 @@ order2 = TrailingStopOrder.create(
     stock_id: ibm_stock.id,
     order_type: 3
 )
-=end

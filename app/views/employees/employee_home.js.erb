@@ -1,0 +1,6 @@
+$(".malingList").html();
+
+<% @test.each do |e| %>
+$(".malingList").append("<%e.first_name %> <% e.last_name %> <br>");
+
+<% end %>

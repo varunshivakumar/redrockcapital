@@ -44,4 +44,20 @@ class StocksController < ApplicationController
     @most_actively_traded_stocks = most_actively_traded_stocks
 
   end
+
+  def update
+    @stock = Stock.find(params[:name].to_i)
+    if @stock.update_attributes(stock_params)
+      flash[:success] = "Profile updated"
+      redirect_to :back
+    else
+      render 'root_path'
+    end
+  end
+
+  private
+
+  def stock_params
+    params.require(:stock).permit(:price_per_share)
+  end
 end
