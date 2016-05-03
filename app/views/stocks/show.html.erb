@@ -4,6 +4,7 @@
 
   <%= render 'shared/stock_chart', stock_symbol: @stock.stock_symbol %>
   <div id="stock_chart"></div>
+
   <h4>Orders with these stocks:</h4>
   <hr>
   <% @orders.each do |o|%>
@@ -19,4 +20,13 @@
         Employee: <%= employee.last_name%>, <%= employee.first_name%> <br>
       </div>
   <% end  %>
+
+  <!-- Form to edit share price of stock -->
+  <div id="edit-stock">
+    <%= form_for(@stock) do |f| %>
+        Price Per Share:
+        <%= f.number_field :price_per_share%>
+        <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
 </div>

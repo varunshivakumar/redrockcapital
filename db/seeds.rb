@@ -179,7 +179,7 @@ stock = StockQuote::Stock.quote('EA');Stock.create(stock_symbol: stock.symbol, c
 stock = StockQuote::Stock.quote('ZNGA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: max_num_shares)
 
 # OwnsStocks
-=begin
+# =begin
 gm_stock_id = Stock.where(stock_symbol: 'GM').first.id
 f_stock_id = Stock.where(stock_symbol: 'F').first.id
 ibm_stock_id = Stock.where(stock_symbol: 'IBM').first.id
@@ -209,7 +209,8 @@ order1 = MarketOrder.create(
     account_id: account4.id,
     employee_id: account4.employee_id,
     stock_id: gm_stock_id,
-    order_type: 0
+    order_type: 0,
+    transaction_fee: 30
 )
 
 order2 = TrailingStopOrder.create(
@@ -219,6 +220,7 @@ order2 = TrailingStopOrder.create(
     account_id: account2.id,
     employee_id: account2.employee_id,
     stock_id: ibm_stock_id,
-    order_type: 3
+    order_type: 3,
+    transaction_fee: 50
 )
-=end
+#=end

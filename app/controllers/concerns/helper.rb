@@ -70,11 +70,13 @@ module Helper
 
   # Stock revenue
   def stock_revenue(stock_symbol)
-    stock_qoute = StockQuote::Stock.quote(stock_symbol)
     stock = Stock.where(stock_symbol: stock_symbol).first
-    orders = Order.where()
+    orders = Order.where(stock_id: stock.id)
     revenue = 0
-
+    orders.each do |order|
+      revenue += order.transaction_fee
+    end
+    revenue
   end
 
   # Stock type revenue
@@ -89,10 +91,51 @@ module Helper
   # Client Revenue
   def client_revenue(client_id)
     revenue = 0
-    sell_orders = Order.where(client_id: client_id, buy_sell_type: "sell", completed: true)
-    for order in sell_orders
-      revenue += (order.num_shares * order.price_per_share) # Subtract transaction fee
+    for order in Order.where(client_id: client_id)
+      revenue += order.transaction_fee
     end
     revenue
+  end
+
+  # Employee that generated most revenue
+  def employee_of_the_month
+    employees = Employee.where(is_employee: true)
+    most_revenue = 0
+    best_employee = nil
+    employees.each do |emp|
+      orders = Order.where(employee_id: emp.id)
+      revenue = 0
+
+      orders.each do |ord|
+        revenue += ord.transaction_fee
+      end
+
+      if revenue > most_revenue
+        most_revenue = revenue
+        best_employee = emp
+      end
+    end
+    [best_employee, most_revenue]
+  end
+
+  # Employee that generated most revenue
+  def most_valuable_client
+    clients = Client.where(is_employee: false)
+    most_revenue = 0
+    best_client = nil
+    clients.each do |client|
+      orders = Order.where(account_id: client.account.id)
+      revenue = 0
+
+      orders.each do |ord|
+        revenue += ord.transaction_fee
+      end
+
+      if revenue > most_revenue
+        most_revenue = revenue
+        best_client = client
+      end
+    end
+    [best_client, most_revenue]
   end
 end

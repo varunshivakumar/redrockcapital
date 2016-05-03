@@ -57,16 +57,16 @@ ActiveRecord::Schema.define(version: 20160430184215) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "num_shares",      limit: 4
-    t.integer  "transaction_fee", limit: 4
+    t.decimal  "transaction_fee",             precision: 10
     t.boolean  "completed"
     t.integer  "account_id",      limit: 4
     t.integer  "employee_id",     limit: 4
     t.integer  "stock_id",        limit: 4
     t.integer  "order_type",      limit: 4
     t.string   "buy_sell_type",   limit: 255
-    t.integer  "price_per_share", limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.decimal  "price_per_share",             precision: 10
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "orders", ["account_id"], name: "index_orders_on_account_id", using: :btree
