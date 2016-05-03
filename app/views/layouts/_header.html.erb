@@ -6,7 +6,7 @@
         <ul class="nav pull-right">
 
           <li><%= link_to "Home", root_path %></li>
-          <% unless current_user.is_employee %><li><%= link_to "Orders", orders_path(current_user) %></li><% end %>
+          <% unless current_user.is_employee %><li><%= link_to "Orders", clients_orders_path(current_user) %></li><% end %>
           <li><%= link_to "Stocks", stocks_path %></li>
           <% if true %><li><%= link_to "Users", users_path %></li><% end %>
           <% if signed_in? %>

@@ -1,0 +1,11 @@
+<%= form_for(@order) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :stock_id %>
+    <%= f.text_field :stock_id %>
+
+    <%= f.label :num_shares %>
+    <%= f.text_field :num_shares %>
+
+    <%= f.submit "Create my order", class: "btn btn-large btn-primary" %>
+<% end %>

@@ -11,7 +11,7 @@
         <% user = Client.find(Account.find(o.account_id).client_id) %>
         Client: <%= user.last_name%>, <%= user.first_name%> <br>
         Number of shares: <%= o.num_shares %><br>
-        Transaction Fee: $<%=o.transaction_fee ? o.transaction_fee : '0'%><br>
+        Transaction Fee: $<%= o.transaction_fee ? o.transaction_fee : '0'%><br>
 
         <% o.completed ?  @completed='color: green' : @completed='color: red' %>
         Order Completed: <span style="<%=@completed%>">  <%= o.completed %></span>  <br>

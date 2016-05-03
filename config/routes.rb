@@ -16,7 +16,7 @@ SampleApp::Application.routes.draw do
 
   ### Client Page ###
   get '/client/:id', to: 'clients#show', as: 'client'           # Clients show page
-  get '/client/:id/orders', to: 'clients#orders', as: 'orders'  # Clients orders page
+  get '/client/:id/orders', to: 'clients#orders', as: 'clients_orders'  # Clients orders page
 
   ### Stocks Controller ###
   get '/stocks', to: 'stocks#stocks', as: 'stocks'              # See all/ Search for stocks
@@ -25,4 +25,6 @@ SampleApp::Application.routes.draw do
   ### Employees Controller ###
   get '/employee/:id', to: 'employees#employee_home' , as: 'employee'
   get '/manager/:id', to: 'employees#manager_home', as: 'manager'
+
+  resources :orders
 end

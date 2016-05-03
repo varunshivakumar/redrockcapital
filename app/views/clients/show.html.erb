@@ -7,6 +7,7 @@
   <% end %>
   <h2> Your Stock Holdings:</h2>
   <div  class="row">
+    <%= link_to "Buy Stock", new_order_path(buy_sell_type: "buy", account_id: @client.account.id) %>
     <!-- References owns_stock table -->
     <% @owns_stocks.each do |stoc| %>
         <div class="stock span3" style="">
