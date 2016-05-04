@@ -21,7 +21,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :hourly_rate, default: 0
 
       # Special
-      t.decimal :investment, scale: 2
+      t.decimal :investment, precision: 6, scale: 2
 
       t.timestamps
     end
