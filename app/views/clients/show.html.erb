@@ -5,38 +5,46 @@
   <% else %>
       <h1>Welcome to <%= @client.first_name %>'s</h1>
   <% end %>
-  <h2>
-    <%= link_to edit_user_path(@client) do %>
-        <button class="btn btn-info">Edit User Info</button>
-    <% end %>
 
-    <%= link_to new_order_path(buy_sell_type: "buy", account_id: @client.account.id) do %>
-        <button class="btn btn-info">Buy Stock</button>
-    <% end %>
-  </h2>
+  <% if current_user?(@client) || current_user.is_employee %>
+      <h2>
+        <%= link_to edit_user_path(@client) do %>
+            <button class="btn btn-info">Edit User Info</button>
+        <% end %>
+
+        <%= link_to new_order_path(buy_sell_type: "buy", account_id: @client.account.id) do %>
+            <button class="btn btn-info">Buy Stock</button>
+        <% end %>
+      </h2>
+  <% end %>
+
   <h2>Your Stock Holdings</h2>
   <div class="row" style="text-align: left;">
     <!-- References owns_stock table -->
-    <% @owns_stocks.each do |stoc| %>
-        <div class="stock span3" style="height: 200px;width:200px;margin-bottom:20px;">
-          <% stock = Stock.find(stoc.stock_id) %>
-          <% stock_quote = StockQuote::Stock.quote(stock.stock_symbol) %>
-          <%= link_to stock_path(stock.stock_symbol) do %><h3><%= stock.stock_symbol %></h3><% end %>
-          <div style="height:40px;"><h5><%= stock_quote.name %></h5></div>
-          Holdings: <%= stockshares = stoc.num_shares %> @ $<%= stockprice = stoc.price_per_share %><br>
+    <% if @owns_stocks %>
+        <% @owns_stocks.each do |stoc| %>
+            <div class="stock span3" style="height: 200px;width:200px;margin-bottom:20px;">
+              <% stock = Stock.find(stoc.stock_id) %>
+              <% stock_quote = StockQuote::Stock.quote(stock.stock_symbol) %>
+              <%= link_to stock_path(stock.stock_symbol) do %><h3><%= stock.stock_symbol %></h3><% end %>
+              <div style="height:40px;"><h5><%= stock_quote.name %></h5></div>
+              Holdings: <%= stockshares = stoc.num_shares %> @ $<%= stockprice = stoc.price_per_share %><br>
 
-          <%= stock.stock_symbol %> current value: <%= currentprice = stock_quote.ask %><br>
+              <%= stock.stock_symbol %> current value: <%= currentprice = stock_quote.ask %><br>
 
-          <!-- calculate the net loss or gain from a stock holding -->
-          <% total = stockshares * currentprice - stockshares * stockprice %>
-          <% total > 0 ? color="color: green;": color="color: red;"%>
+              <!-- calculate the net loss or gain from a stock holding -->
+              <% total = stockshares * currentprice - stockshares * stockprice %>
+              <% total > 0 ? color="color: green;": color="color: red;"%>
 
-          NET: <span style="<%=color%>">$<%= total.round(3) %></span><br>
-          <br>
-          <%= link_to new_order_path(buy_sell_type: "sell", account_id: @client.account.id, owns_stock_id: stoc.id) do %>
-              <button type="button" class="btn btn-primary">Sell Stock</button>
-          <% end %>
-        </div>
+              NET: <span style="<%=color%>">$<%= total.round(3) %></span><br>
+              <br>
+              <% if current_user?(@client) || current_user.is_employee %>
+                  <%= link_to new_order_path(buy_sell_type: "sell", account_id: @client.account.id, owns_stock_id: stoc.id) do %>
+                      <button type="button" class="btn btn-primary">Sell Stock</button>
+                  <% end %>
+              <% end %>
+            </div>
+        <% end %>
     <% end %>
   </div>
 </div>

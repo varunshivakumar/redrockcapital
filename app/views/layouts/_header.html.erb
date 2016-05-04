@@ -8,7 +8,7 @@
           <li><%= link_to "Home", root_path %></li>
           <% unless current_user.nil? || current_user.is_employee %><li><%= link_to "Orders", clients_orders_path(current_user) %></li><% end %>
           <li><%= link_to "Stocks", stocks_path %></li>
-          <% if true %><li><%= link_to "Users", users_path %></li><% end %>
+          <% if current_user.is_employee %><li><%= link_to "Users", users_path %></li><% end %>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include Helper
 
   def new
     @order = Order.new
@@ -15,20 +16,33 @@ class OrdersController < ApplicationController
     if @order.buy_sell_type == "buy"
       @order.stock_id = params[:stock_id].to_i
     end
+
+    # Update all stock prices
+    update_stocks
+
     # Preliminary info
     stock = Stock.find(@order.stock_id)
+    stock_quote = StockQuote::Stock.quote(stock.stock_symbol)
     price_per_share = stock.price_per_share
     num_shares = @order.num_shares
-    # Get Price per share
-    @order.price_per_share = price_per_share
-    # Calculate transaction fee
-    @order.transaction_fee = price_per_share * num_shares * 0.05
+
     # Determine employee
     @order.employee_id = @order.account.employee.id
-    # Determine completion
+
+    # Calculate transaction fee
+    @order.transaction_fee = price_per_share * num_shares * 0.05
+
+    # Determine completion and price per share
+    @order.order_type = params[:order_type].to_i
     if @order.order_type == 0
+      @order.price_per_share = price_per_share
+      @order.completed = true
+    elsif @order.order_type == 1
+      @order.price_per_share = stock_quote.last_trade_price_only
       @order.completed = true
     end
+
+    # Check incomplete orders
 
     if @order.save
       # Create owns stock object
@@ -40,7 +54,7 @@ class OrdersController < ApplicationController
             stock_id: @order.stock_id,
             order_id: @order.id
         )
-      else
+      elsif @order.completed
         owns_stock = OwnsStock.find(params[:order][:owns_stock_id].to_i)
         if num_shares == owns_stock.num_shares
           OwnsStock.destroy(owns_stock.id)

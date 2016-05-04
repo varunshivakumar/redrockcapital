@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration
       t.decimal :price_per_share
       t.string :buy_sell_type
       t.decimal :transaction_fee
-      t.boolean :completed
+      t.boolean :completed, default: false
 
       t.belongs_to :account, index: true
       t.belongs_to :employee, index: true

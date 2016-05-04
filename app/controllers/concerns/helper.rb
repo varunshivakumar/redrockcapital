@@ -1,11 +1,24 @@
 module Helper
+  # Update all stocks prices
+  def update_stocks
+    Stock.all.each do |stock|
+      stock_quote = StockQuote::Stock.quote(stock.stock_symbol)
+      stock.price_per_share = stock_quote.ask
+      stock.save
+    end
+  end
+
   # Stock suggestions for customer
   def stock_suggestions_client(client_id)
-    account = Account.where(client_id: client_id)
-    stocks = OwnsStock.where(account_id: account.first.id)
-    sorted_stocks = stocks.sort {|x, y| y.num_shares <=> x.num_shares}
-    most_owned_stock = Stock.find(sorted_stocks.first.stock_id)
-    @stk_suggestions = Stock.where(stock_type: most_owned_stock.stock_type)
+    account = Account.where(client_id: client_id).first
+    stocks = OwnsStock.where(account_id: account.id)
+    if stocks.size > 0
+      sorted_stocks = stocks.sort {|x, y| y.num_shares <=> x.num_shares}
+      most_owned_stock = Stock.find(sorted_stocks.first.stock_id)
+      @stk_suggestions = Stock.where(stock_type: most_owned_stock.stock_type)
+    else
+      stock_suggestions
+    end
   end
 
   # general stock suggestions
