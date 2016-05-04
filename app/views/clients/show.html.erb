@@ -28,12 +28,12 @@
           <%= stock.stock_symbol %> current value: <%= currentprice = stock_quote.ask %><br>
 
           <!-- calculate the net loss or gain from a stock holding -->
-          <% total = stockshares * currentprice - stockshares * stockprice%>
+          <% total = stockshares * currentprice - stockshares * stockprice %>
           <% total > 0 ? color="color: green;": color="color: red;"%>
 
           NET: <span style="<%=color%>">$<%= total.round(3) %></span><br>
           <br>
-          <%= link_to new_order_path(buy_sell_type: "sell", account_id: @client.account.id) do %>
+          <%= link_to new_order_path(buy_sell_type: "sell", account_id: @client.account.id, owns_stock_id: stoc.id) do %>
               <button type="button" class="btn btn-primary">Sell Stock</button>
           <% end %>
         </div>

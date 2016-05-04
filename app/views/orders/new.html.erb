@@ -2,5 +2,5 @@
 <% if @buy_sell_type == "buy" %>
     <%= render 'orders/buy_order', buy_sell_type: "buy", client: @client, order: @order, account: @account %>
 <% elsif @buy_sell_type == "sell" %>
-    <%= render 'orders/sell_order', buy_sell_type: "sell", client: @client, order: @order, account: @account %>
+    <%= render 'orders/sell_order', buy_sell_type: "sell", client: @client, order: @order, account: @account, owns_stock: @owns_stock %>
 <% end %>

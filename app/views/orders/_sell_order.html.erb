@@ -1,27 +1,14 @@
-<h1>Buying stock for <%= client.first_name%> <%= client.last_name %></h1>
+<% stock_symbol = Stock.find(owns_stock.stock_id).stock_symbol %>
+<h1>Selling <%= client.first_name%> <%= client.last_name %>'s <%= stock_symbol %> stocks</h1>
 
 <%= form_for(order) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <!-- Pick a stock -->
-    <%= f.label :stock_id %>
-    <ul class="radio-options" style="">
-      <% Stock.all.each do |stock| %>
-          <%# stock_quote = StockQuote::Stock.quote(stock.stock_symbol)%>
-          <li>
-            <%= radio_button_tag(:stock_id, stock.id) %>
-            <label for="stock_id_<%=stock.id%>" style="font-weight: bold;">
-              <%= stock.stock_symbol %>
-              <span style="float: right;font-weight: normal;font-size:15px;">
-                $<%= stock.price_per_share %>
-              </span>
-            </label>
-          </li>
-      <% end %>
-    </ul>
+    <%= f.hidden_field :stock_id, value: owns_stock.stock_id %>
     <!-- Enter the number of shares --><br>
     <div>
-      <%= f.label :num_shares %>
-      <%= f.number_field :num_shares, style:"width: 300px;", id: 'num_shares_num_field', min: 1 %> <!-- set max? depends on volume of stocks -->
+      <div>Number of Shares (you have <%= owns_stock.num_shares%> shares of <%= stock_symbol %>)</div>
+      <%= f.number_field :num_shares, style:"width: 300px;", id: 'num_shares_num_field', max: owns_stock.num_shares, min: 1 %>
       <div id="trans-fee"></div>
       <div id="stock-cost"></div>
       <div id="total-cost"></div>
@@ -39,10 +26,19 @@
           <%= radio_button_tag(:order_type, 1) %>
           <label for="order_type_0">Market on Close</label>
         </li>
+        <li>
+          <%= radio_button_tag(:order_type, 2) %>
+          <label for="order_type_0">Hidden Stop</label>
+        </li>
+        <li style="width: 150px;">
+          <%= radio_button_tag(:order_type, 3) %>
+          <label for="order_type_0">Trailing Stop</label>
+        </li>
       </ul>
     </div>
-    <%= f.hidden_field :buy_sell_type, value: "buy" %>
+    <%= f.hidden_field :buy_sell_type, value: "sell" %>
     <%= f.hidden_field :account_id, value: account.id %>
+    <%= f.hidden_field :owns_stock_id, value: owns_stock.id %>
     <br><br><div><%= f.submit "Create my order", class: "btn btn-large btn-primary" %></div>
 <% end %>
 
@@ -53,17 +49,11 @@
       //alert($('#num_shares_num_field').val());
       //alert(document.querySelector('input[name="stock_id"]:checked').value);
       var num_shares = $('#num_shares_num_field').val();
-      var stock_id = document.querySelector('input[name="stock_id"]:checked').value;
-      var pps = 0;
-      <% Stock.all.each do |stock| %>
-        if (stock_id == <%= stock.id %>){
-          pps = <%= stock.price_per_share %>;
-        }
-      <% end %>
+      var pps = <%= owns_stock.price_per_share %>;
 
       $("#trans-fee").text('Transaction Fee: $' + pps * num_shares * 0.05);
-      $("#stock-cost").text('Cost of Stocks: $' + pps * num_shares);
-      $("#total-cost").text('Total Cost: $' + pps * num_shares * 1.05);
+      $("#stock-cost").text('Revenue from sale: $' + pps * num_shares);
+      $("#total-cost").text('Total Profit: $' + pps * num_shares * 0.95);
     });
 
   });

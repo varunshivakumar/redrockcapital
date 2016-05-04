@@ -20,6 +20,9 @@ class CreateUsers < ActiveRecord::Migration
       # Employee Specific Information
       t.integer :hourly_rate
 
+      # Special
+      t.decimal :investment
+
       t.timestamps
     end
   end

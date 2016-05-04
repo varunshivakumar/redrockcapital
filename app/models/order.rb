@@ -5,4 +5,5 @@ class Order < ActiveRecord::Base
   has_one :owns_stock
 
   attr_accessor :buy_sell_type
+  attr_accessor :owns_stock
 end
