@@ -1,8 +1,8 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.integer :num_shares
-      t.decimal :price_per_share
+      t.integer :num_shares, default: 0
+      t.decimal :price_per_share, scale: 2
       t.string :buy_sell_type
       t.decimal :transaction_fee
       t.boolean :completed, default: false

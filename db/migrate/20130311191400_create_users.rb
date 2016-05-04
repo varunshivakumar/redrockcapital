@@ -15,13 +15,13 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :is_employee, default: false
       # Client Specific Information
       t.string :credit_card_no
-      t.integer :rating
+      t.integer :rating, default: 1
 
       # Employee Specific Information
-      t.integer :hourly_rate
+      t.integer :hourly_rate, default: 0
 
       # Special
-      t.decimal :investment
+      t.decimal :investment, scale: 2
 
       t.timestamps
     end

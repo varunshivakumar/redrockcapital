@@ -13,7 +13,6 @@ manager = Employee.create(
     email: 'admin@gmail.com',
     admin: true,
     is_employee: true,
-    bio: "If you could just go and do that, that'd be greaaat",
     hourly_rate: 100,
 
     password: 'asdfasdf',
@@ -35,7 +34,6 @@ employee1 = Employee.create(
 
     is_employee: true,
     email: 'dsmith@cs.sunysb.edu',
-    bio: "Hi I'm Mr. Smith",
 
     password: 'asdfasdf',
     password_confirmation: 'asdfasdf'
@@ -55,7 +53,6 @@ employee2 = Employee.create(
 
     is_employee: true,
     email: 'dwarren@cs.sunysb.edu',
-    bio: "Hi I'm Mr. Warren",
 
     password: 'asdfasdf',
     password_confirmation: 'asdfasdf'
@@ -179,7 +176,7 @@ stock = StockQuote::Stock.quote('EA');Stock.create(stock_symbol: stock.symbol, c
 stock = StockQuote::Stock.quote('ZNGA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: max_num_shares)
 
 # OwnsStocks
-# =begin
+=begin
 gm_stock_id = Stock.where(stock_symbol: 'GM').first.id
 f_stock_id = Stock.where(stock_symbol: 'F').first.id
 ibm_stock_id = Stock.where(stock_symbol: 'IBM').first.id
