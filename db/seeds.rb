@@ -176,7 +176,7 @@ stock = StockQuote::Stock.quote('EA');Stock.create(stock_symbol: stock.symbol, c
 stock = StockQuote::Stock.quote('ZNGA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'gaming', price_per_share: stock.ask, total_num_shares: max_num_shares)
 
 # OwnsStocks
-=begin
+# =begin
 gm_stock_id = Stock.where(stock_symbol: 'GM').first.id
 f_stock_id = Stock.where(stock_symbol: 'F').first.id
 ibm_stock_id = Stock.where(stock_symbol: 'IBM').first.id
@@ -220,4 +220,4 @@ order2 = TrailingStopOrder.create(
     order_type: 3,
     transaction_fee: 50
 )
-#=end
+# =end

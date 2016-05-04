@@ -1,11 +1,13 @@
-<h1>Employee Home Page</h1>
-<h3>Welcome <%= current_user.first_name %></h3>
-
+<% if current_user?(@employee) %>
+    <h1>Welcome <%= @employee.first_name %> <%= @employee.last_name %></h1>
+<% else %>
+    <h1>Welcome to <%= @employee.first_name %> <%= @employee.last_name %>'s Home Page</h1>
+<% end %>
+<h2>Employee Home Page</h2>
 <!--@employee is an employee -->
 <!-- @emails is mailing list-->
 <div class="container-fluid">
-
-  <h2>Current mailing list</h2>
+  <h3>Current mailing list</h3>
   <hr>
   <br>
   <%= form_tag employee_path, :method => 'get' do %>
@@ -16,23 +18,32 @@
   <% end %>
 
   <div class="mailingList">
-    <% @employee.each do |e| %>
+    <% if @users %>
+        <% employees_clients = @users %>
+    <% else %>
+        <% employees_clients = Client.all %>
+    <% end %>
+    <% employees_clients.each do |e| %>
 
-        <div class="employee-row row-fluid">
-          <div class="span2">
+        <% unless e.is_employee  %>
+            <% if e.employee.id == @employee.id %>
+                <div class="employee-row row-fluid">
+                  <div class="span2">
 
-            <%= e.first_name %> <%=e.last_name%>
-          </div>
-          <div class="span2">
-            <%= e.email %>
-          </div>
+                    <%= e.first_name %> <%=e.last_name%>
+                  </div>
+                  <div class="span2">
+                    <%= e.email %>
+                  </div>
 
-          <div class="span2" style="padding-left: 50px;">
-            <%= link_to edit_user_path(e.id) do %>
-                <button class="btn btn-primary">Edit</button>
+                  <div class="span2" style="padding-left: 50px;">
+                    <%= link_to edit_user_path(e.id) do %>
+                        <button class="btn btn-primary">Edit</button>
+                    <% end %>
+                  </div>
+                </div>
             <% end %>
-          </div>
-        </div>
-    <%end%>
+        <% end %>
+    <% end %>
   </div>
 </div>

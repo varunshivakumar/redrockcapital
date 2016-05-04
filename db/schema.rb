@@ -56,17 +56,17 @@ ActiveRecord::Schema.define(version: 20160423050908) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "num_shares",      limit: 4
-    t.decimal  "price_per_share",             precision: 10
+    t.integer  "num_shares",      limit: 4,                            default: 0
+    t.decimal  "price_per_share",             precision: 6,  scale: 2
     t.string   "buy_sell_type",   limit: 255
     t.decimal  "transaction_fee",             precision: 10
-    t.boolean  "completed",                                  default: false
+    t.boolean  "completed",                                            default: false
     t.integer  "account_id",      limit: 4
     t.integer  "employee_id",     limit: 4
     t.integer  "stock_id",        limit: 4
     t.integer  "order_type",      limit: 4
-    t.datetime "created_at",                                                 null: false
-    t.datetime "updated_at",                                                 null: false
+    t.datetime "created_at",                                                           null: false
+    t.datetime "updated_at",                                                           null: false
   end
 
   add_index "orders", ["account_id"], name: "index_orders_on_account_id", using: :btree
@@ -74,13 +74,13 @@ ActiveRecord::Schema.define(version: 20160423050908) do
   add_index "orders", ["stock_id"], name: "index_orders_on_stock_id", using: :btree
 
   create_table "owns_stocks", force: :cascade do |t|
-    t.integer  "num_shares",      limit: 4
-    t.decimal  "price_per_share",           precision: 10
+    t.integer  "num_shares",      limit: 4,                         default: 0
+    t.decimal  "price_per_share",           precision: 6, scale: 2
     t.integer  "account_id",      limit: 4
     t.integer  "stock_id",        limit: 4
     t.integer  "order_id",        limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   add_index "owns_stocks", ["account_id"], name: "index_owns_stocks_on_account_id", using: :btree
@@ -91,10 +91,10 @@ ActiveRecord::Schema.define(version: 20160423050908) do
     t.string   "company_name",     limit: 255
     t.string   "stock_symbol",     limit: 255
     t.string   "stock_type",       limit: 255
-    t.decimal  "price_per_share",              precision: 10
-    t.integer  "total_num_shares", limit: 4
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.decimal  "price_per_share",              precision: 6, scale: 2
+    t.integer  "total_num_shares", limit: 4,                           default: 10000
+    t.datetime "created_at",                                                           null: false
+    t.datetime "updated_at",                                                           null: false
   end
 
   create_table "trailing_stop_orders", force: :cascade do |t|
@@ -113,11 +113,11 @@ ActiveRecord::Schema.define(version: 20160423050908) do
     t.string   "state",           limit: 255
     t.string   "telephone",       limit: 255
     t.string   "email",           limit: 255
-    t.boolean  "is_employee",                                default: false
+    t.boolean  "is_employee",                                         default: false
     t.string   "credit_card_no",  limit: 255
-    t.integer  "rating",          limit: 4
-    t.integer  "hourly_rate",     limit: 4
-    t.decimal  "investment",                  precision: 10
+    t.integer  "rating",          limit: 4,                           default: 1
+    t.integer  "hourly_rate",     limit: 4,                           default: 0
+    t.decimal  "investment",                  precision: 6, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest", limit: 255

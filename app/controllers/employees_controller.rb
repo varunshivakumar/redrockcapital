@@ -1,11 +1,10 @@
 class EmployeesController < ApplicationController
   include Helper
   def employee_home
-    @employee_id = Employee.find(params[:id]).id
-    @employee = Employee.all
+    @employee = Employee.find(params[:id])
 
     # @test = Employee.where(id: params[:id]) if params[:id].present?
-    @employee  = @employee.search(params[:search]) if params[:search].present?
+    @users  = Employee.all.search(params[:search]) if params[:search].present?
 
     # Employee:(1)
     # Record an order
@@ -14,7 +13,7 @@ class EmployeesController < ApplicationController
 
     # Employee:(3)
     # Produce customer mailing lists
-    @emails = mailing_list_employee(@employee_id)
+    @emails = mailing_list_employee(@employee.id)
 
     # Employee:(4)
     # Produce a list of stock suggestions for a given customer (same as client/side)
