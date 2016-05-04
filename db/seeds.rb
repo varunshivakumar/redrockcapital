@@ -10,7 +10,7 @@
 manager = Employee.create(
     last_name: 'Bill',
     first_name: 'Lumbergh',
-    email: 'admin@gmail.edu',
+    email: 'admin@gmail.com',
     admin: true,
     is_employee: true,
     bio: "If you could just go and do that, that'd be greaaat",

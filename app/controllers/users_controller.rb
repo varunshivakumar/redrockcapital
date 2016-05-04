@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to controller: :client, action: :home
+    redirect_to controller: :static_pages, action: :home
   end
 
   def new
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless current_user?(@user) || (current_user.is_employee && current_user.admin?)
     end
 
     def admin_user

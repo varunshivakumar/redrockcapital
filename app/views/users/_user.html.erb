@@ -1,16 +1,24 @@
 <li>
-  <%= gravatar_for user, size: 52 %>
+  <% gravatar_for user, size: 52 %>
 
   <% if user.is_employee && user.admin? %>
-    <%= link_to user.first_name, manager_path(user) %>
+      <%= link_to manager_path(user) do %>
+          Manager <%= user.first_name %> <%= user.last_name %>
+      <% end %>
   <% elsif user.is_employee %>
-      <%= link_to user.first_name, employee_path(user) %>
+      <%= link_to employee_path(user) do %>
+          Employee <%= user.first_name %> <%= user.last_name %>
+      <% end %>
   <% else %>
-      <%= link_to user.first_name, client_path(user) %>
+      <%= link_to client_path(user) do %>
+          Client <%= user.first_name %> <%= user.last_name %>
+      <% end %>
   <% end %>
 
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+      <div style="float: right;">
+      <%= link_to "Edit", edit_user_path(user) %> |
+      <%= link_to "Delete", user, method: :delete, data: { confirm: "You sure?" } %>
+      </div>
   <% end %>
 </li>
