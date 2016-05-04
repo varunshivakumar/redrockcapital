@@ -1,0 +1,65 @@
+<h1>Buying stock for <%= client.first_name%> <%= client.last_name %></h1>
+
+<%= form_for(order) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :stock_id %>
+    <ul class="radio-options" style="">
+      <% Stock.all.each do |stock| %>
+          <%# stock_quote = StockQuote::Stock.quote(stock.stock_symbol)%>
+          <li>
+            <%= radio_button_tag(:stock_id, stock.id) %>
+            <label for="stock_id_<%=stock.id%>" style="font-weight: bold;">
+              <%= stock.stock_symbol %>
+              <span style="float: right;font-weight: normal;font-size:15px;">
+                $<%= stock.price_per_share %>
+              </span>
+            </label>
+          </li>
+      <% end %>
+    </ul>
+    <br>
+    <div>
+      <%= f.label :num_shares %>
+      <%= f.number_field :num_shares, style:"width: 300px;", id: 'num_shares_num_field' %>
+      <div id="total-cost"></div>
+      <div>Cost will be charged on <%= client.credit_card_no %></div>
+    </div>
+    <br>
+    <div>
+      <%= f.label :order_type %>
+      <ul class="radio-options" style="">
+        <li>
+          <%= radio_button_tag(:order_type, 0) %>
+          <label for="order_type_0">Market</label>
+        </li>
+        <li style="width: 150px;">
+          <%= radio_button_tag(:order_type, 1) %>
+          <label for="order_type_0">Market on Close</label>
+        </li>
+      </ul>
+    </div>
+    <%= f.hidden_field :buy_sell_type, value: "buy" %>
+    <%= f.hidden_field :account_id, value: account.id %>
+    <br><br><div><%= f.submit "Create my order", class: "btn btn-large btn-primary" %></div>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+
+    $('#num_shares_num_field').on('keyup focusout', function(){
+      //alert($('#num_shares_num_field').val());
+      //alert(document.querySelector('input[name="stock_id"]:checked').value);
+      var num_shares = $('#num_shares_num_field').val();
+      var stock_id = document.querySelector('input[name="stock_id"]:checked').value;
+      var pps = 0;
+      <% Stock.all.each do |stock| %>
+        if (stock_id == <%= stock.id %>){
+          pps = <%= stock.price_per_share %>;
+        }
+      <% end %>
+      $("#total-cost").text('Total Cost: $' + pps * num_shares)
+    });
+
+  });
+</script>

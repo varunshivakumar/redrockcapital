@@ -15,14 +15,14 @@
     <% end %>
   </h2>
   <h2>Your Stock Holdings</h2>
-  <div  class="row">
+  <div class="row" style="text-align: left;">
     <!-- References owns_stock table -->
     <% @owns_stocks.each do |stoc| %>
-        <div class="stock span3" style="">
+        <div class="stock span3" style="height: 200px;width:200px;margin-bottom:20px;">
           <% stock = Stock.find(stoc.stock_id) %>
           <% stock_quote = StockQuote::Stock.quote(stock.stock_symbol) %>
-          <h3><%= stock.stock_symbol %></h3>
-          <h5><%= stock_quote.name %></h5>
+          <%= link_to stock_path(stock.stock_symbol) do %><h3><%= stock.stock_symbol %></h3><% end %>
+          <div style="height:40px;"><h5><%= stock_quote.name %></h5></div>
           Holdings: <%= stockshares = stoc.num_shares %> @ $<%= stockprice = stoc.price_per_share %><br>
 
           <%= stock.stock_symbol %> current value: <%= currentprice = stock_quote.ask %><br>
@@ -33,8 +33,8 @@
 
           NET: <span style="<%=color%>">$<%= total.round(3) %></span><br>
           <br>
-          <%= link_to stock_path(stock.stock_symbol) do %>
-              <button type="button" class="btn btn-primary">View Stock</button>
+          <%= link_to new_order_path(buy_sell_type: "sell", account_id: @client.account.id) do %>
+              <button type="button" class="btn btn-primary">Sell Stock</button>
           <% end %>
         </div>
     <% end %>

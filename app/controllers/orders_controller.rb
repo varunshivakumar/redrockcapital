@@ -8,38 +8,41 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.stock_id = params[:stock_id].to_i
-    # Preliminary info
-    stock = Stock.find(@order.stock_id)
-    price_per_share = stock.price_per_share
-    num_shares = @order.num_shares
-    # Get Price per share
-    @order.price_per_share = price_per_share
-    # Calculate transaction fee
-    @order.transaction_fee = price_per_share * num_shares * 0.05
-    # Determine employee
-    @order.employee_id = @order.account.employee.id
-    # Determine completion
-    if @order.buy_sell_type == 0
-      @order.completed = true
-    end
+    if params[:buy_sell_type] == "buy"
+      byebug
+      @order = Order.new(order_params)
+      @order.stock_id = params[:stock_id].to_i
+      # Preliminary info
+      stock = Stock.find(@order.stock_id)
+      price_per_share = stock.price_per_share
+      num_shares = @order.num_shares
+      # Get Price per share
+      @order.price_per_share = price_per_share
+      # Calculate transaction fee
+      @order.transaction_fee = price_per_share * num_shares * 0.05
+      # Determine employee
+      @order.employee_id = @order.account.employee.id
+      # Determine completion
+      if @order.buy_sell_type == 0
+        @order.completed = true
+      end
 
-    if @order.save
-      # Create owns stock object
-      @owns_stock = OwnsStock.create(
-        num_shares: @order.num_shares,
-        price_per_share: @order.price_per_share,
-        account_id: @order.account.id,
-        stock_id: @order.stock_id,
-        order_id: @order.id
-      )
-      flash[:success] = "Succesful Order"
-    else
-      flash[:notice] = "Unsuccessful Order"
+      if @order.save
+        # Create owns stock object
+        @owns_stock = OwnsStock.create(
+            num_shares: @order.num_shares,
+            price_per_share: @order.price_per_share,
+            account_id: @order.account.id,
+            stock_id: @order.stock_id,
+            order_id: @order.id
+        )
+        flash[:success] = "Succesful Order"
+      else
+        flash[:notice] = "Unsuccessful Order"
+      end
+      redirect_to controller: 'clients', action: 'show', id: @order.account.client.id
     end
-    redirect_to controller: 'clients', action: 'show', id: @order.account.client.id
-
+    byebug
   end
 
   private
