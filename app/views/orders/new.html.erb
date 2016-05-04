@@ -1,11 +1,37 @@
+<h1><%= @buy_sell_type.capitalize%>ing stock for <%= @client.first_name%> <%= @client.last_name %></h1>
+
 <%= form_for(@order) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :stock_id %>
-    <%= f.text_field :stock_id %>
-
-    <%= f.label :num_shares %>
-    <%= f.text_field :num_shares %>
-
-    <%= f.submit "Create my order", class: "btn btn-large btn-primary" %>
+    <ul class="radio-options" style="">
+      <% Stock.all.each do |stock| %>
+          <li>
+            <%= radio_button_tag(:stock_id, stock.id) %>
+            <label for="stock_id_<%=stock.id%>" style="font-weight: bold;"><%= stock.stock_symbol %></label>
+          </li>
+      <% end %>
+    </ul>
+    <br>
+    <div>
+      <%= f.label :num_shares %>
+      <%= f.number_field :num_shares, style:"width: 300px;" %>
+    </div>
+    <br>
+    <div>
+      <%= f.label :order_type %>
+      <ul class="radio-options" style="">
+        <li>
+          <%= radio_button_tag(:order_type, 0) %>
+          <label for="order_type_0">Market</label>
+        </li>
+        <li style="width: 150px;">
+          <%= radio_button_tag(:order_type, 1) %>
+          <label for="order_type_0">Market on Close</label>
+        </li>
+      </ul>
+    </div>
+    <%= f.hidden_field :buy_sell_type, value: @buy_sell_type %>
+    <%= f.hidden_field :account_id, value: @account.id %>
+    <br><br><div><%= f.submit "Create my order", class: "btn btn-large btn-primary" %></div>
 <% end %>

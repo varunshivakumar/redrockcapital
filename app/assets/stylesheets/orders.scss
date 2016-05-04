@@ -1,3 +1,49 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.radio-options {
+  list-style-type:none;
+  margin:0 0 0 0;
+  padding:0;
+  width: 100%;
+}
+
+.radio-options li {
+  display: inline-block;
+  vertical-align:top;
+  margin:0 5px 0 0;
+  padding: 5px;
+  width:120px;
+  height:30px;
+  position:relative;
+}
+
+.radio-options label, .radio-options input {
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.radio-options input[type="radio"] {
+  opacity:0.011;
+  z-index:100;
+}
+
+.radio-options input[type="radio"]:checked + label {
+  background:#f7ff75;
+}
+
+.radio-options label {
+  padding:5px;
+  border:1px solid #CCC;
+  cursor:pointer;
+  z-index:90;
+  font-size: 18px;
+}
+
+.radio-options label:hover {
+  background:#DDD;
+}

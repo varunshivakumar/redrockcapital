@@ -1,18 +1,21 @@
 <!-- Clients Home Page -->
-
-<%= link_to edit_user_path(@client) do %>
-    <button class="btn btn-info">Edit User Info</button>
-<% end %>
-
 <div class="container">
   <% if current_user?(@client) %>
       <h1>Welcome <%= @client.first_name %></h1>
   <% else %>
       <h1>Welcome to <%= @client.first_name %>'s</h1>
   <% end %>
-  <h2> Your Stock Holdings:</h2>
+  <h2>
+    <%= link_to edit_user_path(@client) do %>
+        <button class="btn btn-info">Edit User Info</button>
+    <% end %>
+
+    <%= link_to new_order_path(buy_sell_type: "buy", account_id: @client.account.id) do %>
+        <button class="btn btn-info">Buy Stock</button>
+    <% end %>
+  </h2>
+  <h2>Your Stock Holdings</h2>
   <div  class="row">
-    <%= link_to "Buy Stock", new_order_path(buy_sell_type: "buy", account_id: @client.account.id) %>
     <!-- References owns_stock table -->
     <% @owns_stocks.each do |stoc| %>
         <div class="stock span3" style="">
