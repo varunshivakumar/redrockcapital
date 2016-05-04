@@ -4,7 +4,17 @@
 <%= will_paginate %>
 
 <ul class="users">
-  <%= render @users %>
+  <% @users.each do |user| %>
+      <% unless user.admin && user.is_employee %>
+          <% if current_user.is_employee %>
+              <%= render user %>
+          <% else %>
+              <% unless user.is_employee %>
+                  <%= render user %>
+              <% end %>
+          <% end %>
+      <% end %>
+  <% end %>
 </ul>
 
 <%= will_paginate %>

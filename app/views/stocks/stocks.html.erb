@@ -7,10 +7,12 @@
     </p>
 <% end %>
 
-<div>
+<div style="width:100%;">
   <% @stocks.each do |s| %>
-      <%= s.stock_symbol%>
-      <br>
+      <%= link_to stocks_path(s), style: 'display:inline-block;height: 40px;width:230px;vertical-align:top;' do %>
+          <div style="font-weight: bold; font-size: 18px;display:inline-block;width:70px;"><%= s.stock_symbol %></div>
+          <span style="font-size: 14px;"><%= s.company_name.size > 15 ? s.company_name[0..15] + '...' : s.company_name[0..15]%></span>
+      <% end %>
   <% end %>
 </div>
 
