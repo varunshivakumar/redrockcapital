@@ -18,7 +18,6 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :rating
 
       # Employee Specific Information
-      t.text :bio
       t.integer :hourly_rate
 
       t.timestamps

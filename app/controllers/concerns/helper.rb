@@ -8,6 +8,17 @@ module Helper
     @stk_suggestions = Stock.where(stock_type: most_owned_stock.stock_type)
   end
 
+  # general stock suggestions
+  def stock_suggestions
+    stocks = Array.new(Stock.all.count, 0)
+    Stock.all.each do |stock|
+      stock_quote = StockQuote::Stock.quote(stock.stock_symbol)
+      stocks[stock.id] = [stock.stock_symbol, stock_quote.change_from_two_hundredday_moving_average]
+    end
+    sorted_stocks = stocks.sort {|x, y| y[1] <=> x[1]}
+    sorted_stocks
+  end
+
   # Find all stock types
   def stock_types
     stock_types = Array.new
