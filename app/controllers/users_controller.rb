@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @is_employee = params[:employee]
   end
 
   def create
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
     @user.location = location
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to RedRock Capital!"
       redirect_to @user
     else
       render 'new'
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :ssn, :telephone, :password, :password_confirmation, :address, :zipcode, :city, :state)
+      params.require(:user).permit(:first_name, :last_name, :email, :ssn, :telephone, :password, :password_confirmation, :address, :zipcode, :city, :state, :is_employee)
     end
 
     # Before filters
