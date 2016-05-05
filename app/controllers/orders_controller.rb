@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     end
 
     # Update all stock prices
-    update_stocks
+    # update_stocks
 
     # Preliminary info
     stock = Stock.find(@order.stock_id)

@@ -18,3 +18,13 @@ div.mailingList > div:nth-child(odd) {
   margin-bottom: 5px;
   margin-top: 5px;
 }
+.inlineBlock{
+  display:inline-block;
+  vertical-align:top;
+}
+.floatRight{
+  float:right;
+}
+.bordRed{
+  border: 1px solid red;
+}
