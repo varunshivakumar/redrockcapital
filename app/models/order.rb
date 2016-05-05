@@ -5,4 +5,6 @@ class Order < ActiveRecord::Base
   has_one :owns_stock
 
   attr_accessor :owns_stock
+
+  has_many :pps_points
 end
