@@ -9,12 +9,13 @@
 <div class="container-fluid">
   <h3>Current mailing list<span style="float:right;">Recommended Stocks</span></h3>
   <hr>
-  <div style="width: 67%;display:inline-block;vertical-align:top;">
+  <div class="inlineBlock" style="width: 70%;">
+
     <br>
     <%= form_tag employee_path, :method => 'get' do %>
         <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :first_name => nil %>
+          <%= text_field_tag :search, params[:search], style: 'width: 85%;' %>
+          <%= submit_tag "Search", :first_name => nil, style: 'font-size:16px;padding:3px 8px;float:right;'  %>
         </p>
     <% end %>
 
@@ -62,11 +63,10 @@
       <% end %>
     </div>
   </div>
-  <div style="width: 28%;display:inline-block;vertical-align:top;float:right;">
-    <div>Change from 200 day moving average</div><br/>
-    <% @stock_suggestions.each do |stock_symbol, change| %>
+  <div class="row inlineBlock floatRight" style="width:20%;">
+    <% @stock_suggestions.each do |stock, change| %>
         <% if change.to_i > 0 %>
-            <div><%=stock_symbol%><span style="float:right;color:green;">+$<%=change%></span></div>
+            <%= render 'stocks/stock_simple', stock: stock %>
         <% end %>
     <% end %>
   </div>

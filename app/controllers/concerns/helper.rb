@@ -26,7 +26,7 @@ module Helper
     stocks = Array.new(Stock.all.count, 0)
     Stock.all.each do |stock|
       stock_quote = StockQuote::Stock.quote(stock.stock_symbol)
-      stocks[stock.id] = [stock.stock_symbol, stock_quote.change_from_two_hundredday_moving_average]
+      stocks[stock.id] = [stock, stock_quote.change_from_two_hundredday_moving_average]
     end
     sorted_stocks = stocks.sort {|x, y| y[1] <=> x[1]}
     sorted_stocks

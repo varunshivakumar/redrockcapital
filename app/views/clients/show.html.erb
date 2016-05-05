@@ -49,12 +49,7 @@
   </div>
   <div class="row inlineBlock floatRight" style="width:20%;">
     <% @stk_suggestions.each do |stock|%>
-        <%if stock %>
-            <div class="stock span3" style="width:200px;">
-              <%= link_to stock_path(stock.stock_symbol) do %><h3><%= stock.stock_symbol %></h3><% end %>
-              <div style="height:40px;"><h5><%= stock.company_name %></h5></div>
-            </div>
-        <% end %>
+        <%= render 'stocks/stock_simple', stock: stock %>
     <% end %>
   </div>
 </div>
