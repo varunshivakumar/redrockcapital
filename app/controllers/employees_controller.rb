@@ -45,7 +45,6 @@ class EmployeesController < ApplicationController
     # Manager:(8)
     # Determine which customer generated the most total revenue
     @best_client_revenue = most_valuable_client    # First value is user_id, Second value is revenue
-
   end
 
 end

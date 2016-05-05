@@ -76,12 +76,7 @@ client1 = Client.create(
     password: 'asdfasdf',
     password_confirmation: 'asdfasdf'
 )
-account1 = Account.create(
-    client_id: client1.id,
-    employee_id: employee1.id,
-    created_at: "2006-10-15 00:00:00"
-)
-
+client1.account.update_attributes(created_at: "2006-10-15 00:00:00")
 client2 = Client.create(
     ssn: '222-22-2222',
     last_name: 'Du',
@@ -99,13 +94,7 @@ client2 = Client.create(
     password: 'asdfasdf',
     password_confirmation: 'asdfasdf'
 )
-account2 = Account.create(
-    client_id: client2.id,
-    employee_id: employee1.id,
-    created_at: "2006-10-15 00:00:00"
-)
-
-
+client2.account.update_attributes(created_at: "2006-10-15 00:00:00")
 client3 = Client.create(
     ssn: '333-33-3333',
     last_name: 'Smith',
@@ -123,13 +112,7 @@ client3 = Client.create(
     password: 'asdfasdf',
     password_confirmation: 'asdfasdf'
 )
-account3 = Account.create(
-    client_id: client3.id,
-    employee_id: employee2.id,
-    created_at: "2006-10-01 00:00:00"
-)
-
-
+client3.account.update_attributes(created_at: "2006-10-01 00:00:00")
 client4 = Client.create(
     ssn: '444-44-4444',
     last_name: 'Philip',
@@ -147,12 +130,7 @@ client4 = Client.create(
     password: 'asdfasdf',
     password_confirmation: 'asdfasdf'
 )
-account4 = Account.create(
-    client_id: client4.id,
-    employee_id: employee2.id,
-    created_at: "2006-10-01 00:00:00"
-)
-
+client4.account.update_attributes(created_at: "2006-10-01 00:00:00")
 # Stocks
 max_num_shares = 10000
 stock = StockQuote::Stock.quote('F');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: 9.0, total_num_shares: 750)
@@ -187,20 +165,20 @@ ibm_stock_id = Stock.where(stock_symbol: 'IBM').first.id
 ownStock1 = OwnsStock.create( # Client 444-44-4444 owns GM(250)
     num_shares: 250,
     price_per_share: 32.10,
-    account_id: account4.id,
+    account_id: client4.account.id,
     stock_id: gm_stock_id
 )
 
 ownStock2 = OwnsStock.create( # Client 444-44-4444 owns F(100)
     num_shares: 100,
     price_per_share: 9.67,
-    account_id: account4.id,
+    account_id: client4.account.id,
     stock_id: f_stock_id
 )
 ownStock3 = OwnsStock.create( # Client 222-22-2222 owns IBM(50)
     num_shares: 50,
     price_per_share: 89.45,
-    account_id: account2.id,
+    account_id: client2.account.id,
     stock_id: ibm_stock_id
 )
 order1 = MarketOrder.create(
@@ -208,10 +186,11 @@ order1 = MarketOrder.create(
     price_per_share: 34.0,
     completed: true,
     buy_sell_type: "buy",
-    account_id: account4.id,
-    employee_id: account4.employee_id,
+    account_id: client4.account.id,
+    employee_id: client4.account.employee_id,
     stock_id: gm_stock_id,
     order_type: 0,
+    owns_stock_id: ownStock1.id,
     transaction_fee: 10 # made this value up
 )
 
@@ -219,12 +198,13 @@ order2 = TrailingStopOrder.create(
     num_shares: 10,
     completed: true,
     price_per_share: 90.0,
-    account_id: account2.id,
-    employee_id: account2.employee_id,
+    account_id: client2.account.id,
+    employee_id: client2.account.employee_id,
     stock_id: ibm_stock_id,
     buy_sell_type: "sell",
     order_type: 3,
     trail: 10.00,
+    owns_stock_id: ownStock3.id,
     transaction_fee: 10 # made this value up
 
 )

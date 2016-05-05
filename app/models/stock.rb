@@ -5,7 +5,7 @@ class Stock < ActiveRecord::Base
 
   has_many :pps_points
 
-  after_create :make_pps_point
+  after_save :make_pps_point
 
   def make_pps_point
     PpsPoint.create(stock_id: self.id, price_per_share: self.price_per_share)

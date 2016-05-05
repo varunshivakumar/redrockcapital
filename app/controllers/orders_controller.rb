@@ -37,6 +37,8 @@ class OrdersController < ApplicationController
     elsif @order.order_type == 1
       @order.price_per_share = stock_quote.last_trade_price_only
       @order.completed = true
+    elsif @order.order_type == 3
+    elsif @order.order_type == 4
     end
 
     # Check incomplete orders
@@ -69,6 +71,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:stock_id, :num_shares, :order_type, :buy_sell_type, :account_id)
+    params.require(:order).permit(:stock_id, :num_shares, :order_type, :buy_sell_type, :account_id, :price_per_share, :trail, :owns_stock_id)
   end
 end

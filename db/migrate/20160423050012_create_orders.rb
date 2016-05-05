@@ -13,6 +13,7 @@ class CreateOrders < ActiveRecord::Migration
 
       # 0 - Market, 1 - Market on Close, 2 - Hidden Stop, 3 - Trailing Stop
       t.integer :order_type
+      t.belongs_to :owns_stock, index: true
       t.decimal :trail, precision: 6, scale: 2
 
       t.timestamps null: false

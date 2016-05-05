@@ -36,6 +36,10 @@
         </li>
       </ul>
     </div>
+    <%= f.label :price_per_share %>
+    <%= f.number_field :price_per_share, step: 0.01 %>
+    <%= f.label :trail %>
+    <%= f.number_field :trail, step: 0.01 %>
     <%= f.hidden_field :buy_sell_type, value: "sell" %>
     <%= f.hidden_field :account_id, value: account.id %>
     <%= f.hidden_field :owns_stock_id, value: owns_stock.id %>

@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160505094114) do
     t.integer  "employee_id",     limit: 4
     t.integer  "stock_id",        limit: 4
     t.integer  "order_type",      limit: 4
+    t.integer  "owns_stock_id",   limit: 4
     t.decimal  "trail",                       precision: 6,  scale: 2
     t.datetime "created_at",                                                           null: false
     t.datetime "updated_at",                                                           null: false
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160505094114) do
 
   add_index "orders", ["account_id"], name: "index_orders_on_account_id", using: :btree
   add_index "orders", ["employee_id"], name: "index_orders_on_employee_id", using: :btree
+  add_index "orders", ["owns_stock_id"], name: "index_orders_on_owns_stock_id", using: :btree
   add_index "orders", ["stock_id"], name: "index_orders_on_stock_id", using: :btree
 
   create_table "owns_stocks", force: :cascade do |t|
@@ -89,7 +91,6 @@ ActiveRecord::Schema.define(version: 20160505094114) do
   add_index "owns_stocks", ["stock_id"], name: "index_owns_stocks_on_stock_id", using: :btree
 
   create_table "pps_points", force: :cascade do |t|
-    t.integer  "order_id",        limit: 4
     t.integer  "stock_id",        limit: 4
     t.decimal  "price_per_share",           precision: 6, scale: 2
     t.datetime "created_at",                                        null: false
