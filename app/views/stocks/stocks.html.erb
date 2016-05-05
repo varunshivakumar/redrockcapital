@@ -41,15 +41,17 @@
     </div>
   </div>
 
-  <div>
-    <h3>Most-Actively Traded Stocks</h3>
-    <hr>
-    <div style="width:100%; margin-bottom: 20px;">
-      <% @most_actively_traded_stocks[0..3].each do |stock_id, num_shares| %>
-          <% if stock_id > 0 %>
-              <%= render 'stocks/stock_simple', stock: Stock.find(stock_id) %>
+  <% if !current_user.nil? && current_user.is_employee && current_user.admin? %>
+      <div>
+        <h3>Most-Actively Traded Stocks</h3>
+        <hr>
+        <div style="width:100%; margin-bottom: 20px;">
+          <% @most_actively_traded_stocks[0..3].each do |stock_id, num_shares| %>
+              <% if stock_id > 0 %>
+                  <%= render 'stocks/stock_simple', stock: Stock.find(stock_id) %>
+              <% end %>
           <% end %>
-      <% end %>
-    </div>
-  </div>
+        </div>
+      </div>
+  <% end %>
 </div>
