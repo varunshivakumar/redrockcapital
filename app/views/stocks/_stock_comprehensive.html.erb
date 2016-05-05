@@ -1,9 +1,14 @@
-<div class="inlineBlock" style="height: 80px;width:220px;margin-bottom:45px;margin-right:10px;">
+<div class="inlineBlock" style="height: 100px;width:220px;margin-bottom:45px;margin-right:10px;">
   <%= link_to stock_path(stock.stock_symbol) do %>
       <div style="font-weight: bold; font-size: 18px;display:inline-block;"><%= stock.stock_symbol %></div>
       <span style="font-size: 14px;float:right;margin-right:15px;"><%= stock.stock_type.capitalize %></span>
   <% end %>
   <div><%= stock.company_name %></div>
-  <div style="font-size: 18px;">$<%= stock.price_per_share %></div>
+  <div style="font-size: 18px;margin:4px 0;">
+    $<%= stock.price_per_share %>
+    <% if current_user.admin? && current_user.is_employee? %>
+      <%= link_to "Edit Price", edit_stock_path(stock) %>
+    <% end %>
+  </div>
   <div>Total Num. Shares: <%= stock.total_num_shares %></div><!-- Available num shares -->
 </div>

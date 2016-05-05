@@ -20,7 +20,7 @@ SampleApp::Application.routes.draw do
 
   ### Stocks Controller ###
   get '/stocks', to: 'stocks#stocks', as: 'stocks'              # See all/ Search for stocks
-  resources :stocks, param: :name, only: [:show, :update]                # Stocks show page
+  resources :stocks, param: :name, only: [:show, :update, :edit]                # Stocks show page
 
   ### Employees Controller ###
   get '/employee/:id', to: 'employees#employee_home' , as: 'employee'

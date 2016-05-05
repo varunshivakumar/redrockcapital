@@ -1,0 +1,9 @@
+<!-- Form to edit share price of stock -->
+<h1>Editing share price for <%= @stock.stock_symbol %></h1>
+<div id="edit-stock">
+  <%= form_for(@stock) do |f| %>
+      Price Per Share:
+      <%= f.number_field :price_per_share, step: 0.01 %>
+      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>

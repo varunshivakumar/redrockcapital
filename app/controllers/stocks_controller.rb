@@ -49,11 +49,15 @@ class StocksController < ApplicationController
 
   end
 
+  def edit
+    @stock = Stock.find(params[:name].to_i)
+  end
+
   def update
     @stock = Stock.find(params[:name].to_i)
     if @stock.update_attributes(stock_params)
-      flash[:success] = "Profile updated"
-      redirect_to :back
+      flash[:success] = "Stock Updated"
+      redirect_to :stocks
     else
       render 'root_path'
     end

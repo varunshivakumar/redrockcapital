@@ -6,27 +6,11 @@
   <div id="stock_chart"></div>
 
   <h4>Orders with these stocks:</h4>
-  <hr>
-  <% @orders.each do |o|%>
-      <div class="span3">
-        <% user = Client.find(Account.find(o.account_id).client_id) %>
-        Client: <%= user.last_name%>, <%= user.first_name%> <br>
-        Number of shares: <%= o.num_shares %><br>
-        Transaction Fee: $<%= o.transaction_fee ? o.transaction_fee : '0'%><br>
-
-        <% o.completed ?  @completed='color: green' : @completed='color: red' %>
-        Order Completed: <span style="<%=@completed%>">  <%= o.completed %></span>  <br>
-        <% employee =  Employee.find(o.employee_id) %>
-        Employee: <%= employee.last_name%>, <%= employee.first_name%> <br>
-      </div>
-  <% end  %>
-
-  <!-- Form to edit share price of stock -->
-  <div id="edit-stock">
-    <%= form_for(@stock) do |f| %>
-        Price Per Share:
-        <%= f.number_field :price_per_share%>
-        <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+  <table class="table table-hover">
+    <th>Client</th><th>Stock</th><th>Buy/Sell</th><th>Order Type</th><th>Num. Shares</th>
+    <th>PPS</th><th>Stock Cost</th><th>Employee</th><th>Transaction Fee</th><!--<th>Completed</th>-->
+    <% @orders.each do |o|  %>
+        <tr><%= render 'orders/order_table', order: o %></tr>
     <% end %>
-  </div>
+  </table>
 </div>
