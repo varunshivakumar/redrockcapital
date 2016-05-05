@@ -18,7 +18,7 @@
       </h2>
   <% end %>
 
-  <h2>Your Stock Holdings</h2>
+  <h3>Your Stock Holdings</h3><hr>
   <div class="row" style="text-align: left;">
     <!-- References owns_stock table -->
     <% if @owns_stocks %>
@@ -43,6 +43,19 @@
                       <button type="button" class="btn btn-primary">Sell Stock</button>
                   <% end %>
               <% end %>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+  <br><h3>Stock Suggestions</h3><hr>
+  <div class="row">
+    <% @stk_suggestions.each do |stock|%>
+        <%if stock %>
+            <div class="stock span3" style="height: 200px;width:200px;margin-bottom:20px;">
+              <%= link_to stock_path(stock.stock_symbol) do %><h3><%= stock.stock_symbol %></h3><% end %>
+              <div style="height:40px;"><h5><%= stock.company_name %></h5></div>
+              Price Per Share:  <%=stock.price_per_share %> <br>
+              Stock Type: <%= stock.stock_type %>
             </div>
         <% end %>
     <% end %>

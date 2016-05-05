@@ -17,7 +17,7 @@ module Helper
       most_owned_stock = Stock.find(sorted_stocks.first.stock_id)
       @stk_suggestions = Stock.where(stock_type: most_owned_stock.stock_type)
     else
-      stock_suggestions
+      stock_suggestions.collect{|stock| Stock.where(:stock_symbol => stock[0]).first }
     end
   end
 
@@ -113,9 +113,9 @@ module Helper
   end
 
   # Client Revenue
-  def client_revenue(client_id)
+  def client_revenue(account_id)
     revenue = 0
-    for order in Order.where(client_id: client_id)
+    for order in Order.where(account_id: account_id)
       revenue += order.transaction_fee
     end
     revenue

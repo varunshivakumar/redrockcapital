@@ -5,7 +5,7 @@ class Stock < ActiveRecord::Base
 
   def self.search(search)
     if search
-      self.where('stock_symbol LIKE ? OR company_name like ?', "%#{search}%", "%#{search}%")
+      self.where('stock_symbol LIKE ? OR company_name like ? OR stock_type like ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       self.all
     end

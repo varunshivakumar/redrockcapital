@@ -1,5 +1,8 @@
 class EmployeesController < ApplicationController
   include Helper
+  helper_method :stock_revenue
+  helper_method :stock_type_revenue
+  helper_method :client_revenue
   def employee_home
     @employee = Employee.find(params[:id])
 
@@ -21,6 +24,10 @@ class EmployeesController < ApplicationController
   end
 
   def manager_home
+    @stocks = Stock.all
+    @stock_types = stock_types
+    @clients = Client.where(is_employee: false)
+
     # Manager:(3)
     # Obtain a sales report for a particular month
     @sales_report = Order.where("created_at > ? ", 30.days.ago) # list of orders in the month

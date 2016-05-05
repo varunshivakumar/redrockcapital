@@ -1,2 +1,83 @@
 <h1>Manager Home Page</h1>
 <h2>Welcome <%= current_user.first_name %></h2>
+
+<div clas="container">
+  <div class="row">
+    <h3>Sales report for last 30 days</h3>
+    <hr>
+    <% @sales_report.each do |o|  %>
+        <div class="span3">
+          <% user = Client.find(Account.find(o.account_id).client_id) %>
+          Client: <%= user.last_name%>, <%= user.first_name%> <br>
+          Price Per Share: <%= o.price_per_share %> <br>
+          Type: <%=o.order_type%> <br>
+          <% stockReport = Stock.find(o.stock_id) %>
+          Stock Symbol: <%= stockReport.stock_symbol %> <br>
+
+          Number of shares: <%= o.num_shares %><br>
+          Transaction Fee: $<%= o.transaction_fee ? o.transaction_fee : '0'%><br>
+
+          <% o.completed ?  @completed='color: green' : @completed='color: red' %>
+          Order Completed: <span style="<%=@completed%>">  <%= o.completed %></span>  <br>
+          <% employee =  Employee.find(o.employee_id) %>
+          Employee: <%= employee.last_name%>, <%= employee.first_name%> <br>
+        </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3>Employee of the month</h3>
+      <hr>
+      <%=@best_employee_revenue[0].first_name %> <%= @best_employee_revenue[0].last_name %><br>
+      <%= link_to employee_path(@best_employee_revenue[0]) do %>
+          <button class="btn btn-info">View</button>
+      <% end %>
+    </div>
+    <div class="span6">
+      <h3>Most Valued Client</h3>
+      <hr>
+      <%=@best_client_revenue[0].first_name %> <%=@best_client_revenue[0].last_name %><br>
+      <%= link_to client_path(@best_client_revenue[0]) do %>
+          <button class="btn btn-info">View</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <h3>Revenue by client</h3>
+    <hr>
+    <table class="table table-hover">
+      <th>Client Name</th><th>Revenue</th>
+      <% @clients.each do |client|%>
+          <tr>
+            <td> <%= client.first_name%> <%= client.last_name%></td>
+            <td> $<%= client_revenue(client.account.id)%></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="row">
+    <h3>Stock Types</h3>
+    <hr>
+    <table class="table table-hover">
+      <th>Industry</th><th>Revenue</th>
+      <% @stock_types.each do |s| %>
+          <tr>
+            <td><%= s %></td>
+            <td>$<%= stock_type_revenue(s) %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="row">
+    <h3>Stock Revenue Total</h3>
+    <table class="table table-hover">
+      <th>Stock Name</th><th>Revenue</th>
+      <%@stocks.each do |s| %>
+          <tr>
+            <td><%= s.stock_symbol %></td>
+            <td>$<%= stock_revenue(s.stock_symbol) %></td>
+      <% end %>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,21 +1,38 @@
 <h1>Stocks Page</h1>
- <h2>Search for stocks</h2>
-<%= form_tag stocks_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", :stock_symbol => nil %>
-    </p>
-<% end %>
+<h2>Search for stock by stock symbol, company name or stock type</h2>
+<div class="container">
+  <%= form_tag stocks_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search], style: 'width: 90%;' %>
+        <%= submit_tag "Search", :stock_symbol => nil, style: 'font-size:16px;padding: 3px 8px;float:right;' %>
+      </p>
+  <% end %>
 
-<div style="width:100%;">
-  <% @stocks.each do |s| %>
-      <%= link_to stock_path(s.stock_symbol), style: 'display:inline-block;height: 40px;width:230px;vertical-align:top;' do %>
-          <div style="font-weight: bold; font-size: 18px;display:inline-block;width:70px;"><%= s.stock_symbol %></div>
-          <span style="font-size: 14px;"><%= s.company_name.size > 15 ? s.company_name[0..15] + '...' : s.company_name[0..15]%></span>
-      <% end %>
+  <h3>Comprehensive Listing of Stocks</h3>
+  <hr>
+  <div style="width:100%; margin-bottom: 20px;">
+    <% @stocks.each do |s| %>
+        <%= link_to stock_path(s.stock_symbol), style: 'display:inline-block;height: 40px;width:230px;vertical-align:top;' do %>
+            <div style="font-weight: bold; font-size: 18px;display:inline-block;width:70px;"><%= s.stock_symbol %></div>
+            <span style="font-size: 14px;"><%= s.company_name.size > 15 ? s.company_name[0..15] + '...' : s.company_name[0..15]%></span>
+        <% end %>
+    <% end %>
+  </div>
+
+  <% stock_ids = @stocks.collect {|stock| stock.id } %>
+  <% orders = Order.where(stock_id: stock_ids) %>
+
+  <h3>Recent Orders</h3>
+  <hr>
+  <%orders.each do |ord| %>
+      <% stock = Stock.find(ord.stock_id) %>
+      <div class="stock span3" style="height: 200px;width:200px;margin-bottom:20px;">
+        <%= link_to stock_path(stock.stock_symbol) do %><h3><%= stock.stock_symbol %></h3><% end %>
+        <div style="height:40px;"><h5><%= stock.company_name %></h5></div>
+        Price Per Share:  <%=stock.price_per_share %> <br>
+        Stock Type: <%= stock.stock_type.capitalize %><br><br>
+        Employee: <%= ord.employee.first_name %> <%= ord.employee.last_name %><br>
+        Client: <%= ord.account.client.first_name %>  <%= ord.account.client.last_name %> <br>
+      </div>
   <% end %>
 </div>
-
-<% stock_ids = @stocks.collect {|stock| stock.id } %>
-<% orders = Order.where(stock_id: stock_ids) %>
-
