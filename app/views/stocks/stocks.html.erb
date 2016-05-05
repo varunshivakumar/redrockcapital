@@ -8,7 +8,12 @@
       </p>
   <% end %>
 
-  <h3>Comprehensive Listing of Stocks</h3>
+  <h3>
+    Comprehensive Listing of Stocks
+    <%=link_to update_stock_prices_path(ask:true) do%><button id="update_last" class="btn btn-info floatRight">Last Trade Price</button><%end%>
+    <%=link_to update_stock_prices_path(ask:false) do%><button id="update" class="btn btn-info floatRight" style="margin-right:10px;">Asking Price</button><%end%>
+    <div class="floatRight" style="font-weight:normal;font-size:18px;position:relative;top:8px;margin-right:10px;">Update Stock Prices:</div>
+  </h3>
   <hr>
   <div style="width:100%; margin-bottom: 20px;">
     <% @stocks.each do |stock| %>

@@ -1,5 +1,6 @@
 class StocksController < ApplicationController
   include Helper
+  helper_method :update_stocks
   def show
     @stock = Stock.where(stock_symbol: params[:name]).first
 
@@ -61,6 +62,15 @@ class StocksController < ApplicationController
     else
       render 'root_path'
     end
+  end
+
+  def update_stock_prices
+    if params[:ask] == "true"
+      update_stocks_pps(true)
+    else
+      update_stocks_pps(false)
+    end
+    redirect_to :stocks
   end
 
   private

@@ -1,9 +1,13 @@
 module Helper
   # Update all stocks prices
-  def update_stocks
+  def update_stocks_pps(ask)
     Stock.all.each do |stock|
       stock_quote = StockQuote::Stock.quote(stock.stock_symbol)
-      stock.price_per_share = stock_quote.ask
+      if ask
+        stock.price_per_share = stock_quote.ask
+      else
+        stock.price_per_share = stock_quote.last_trade_price_only
+      end
       stock.save
     end
   end
