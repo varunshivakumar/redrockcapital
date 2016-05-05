@@ -16,3 +16,6 @@
   <% end %>
 </div>
 
+<% stock_ids = @stocks.collect {|stock| stock.id } %>
+<% orders = Order.where(stock_id: stock_ids) %>
+

@@ -7,42 +7,66 @@
 <!--@employee is an employee -->
 <!-- @emails is mailing list-->
 <div class="container-fluid">
-  <h3>Current mailing list</h3>
+  <h3>Current mailing list<span style="float:right;">Recommended Stocks</span></h3>
   <hr>
-  <br>
-  <%= form_tag employee_path, :method => 'get' do %>
-      <p>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :first_name => nil %>
-      </p>
-  <% end %>
-
-  <div class="mailingList">
-    <% if @users %>
-        <% employees_clients = @users %>
-    <% else %>
-        <% employees_clients = Client.all %>
+  <div style="width: 67%;display:inline-block;vertical-align:top;">
+    <br>
+    <%= form_tag employee_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :first_name => nil %>
+        </p>
     <% end %>
-    <% employees_clients.each do |e| %>
 
-        <% unless e.is_employee  %>
-            <% if e.employee.id == @employee.id %>
-                <div class="employee-row row-fluid">
-                  <div class="span2">
+    <div class="mailingList">
+      <% if @users %>
+          <% employees_clients = @users %>
+      <% else %>
+          <% employees_clients = Client.all %>
+      <% end %>
+      <% employees_clients.each do |e| %>
 
-                    <%= e.first_name %> <%=e.last_name%>
-                  </div>
-                  <div class="span2">
-                    <%= e.email %>
-                  </div>
+          <% unless e.is_employee  %>
+              <% if e.employee.id == @employee.id %>
+                  <div class="employee-row row-fluid">
+                    <div class="span2">
+                      <%=link_to client_path(e) do %>
+                          <%= e.first_name %> <%=e.last_name%>
+                      <% end %>
+                    </div>
+                    <div class="span2">
+                      <%= e.email %>
+                    </div>
 
-                  <div class="span2" style="padding-left: 50px;">
-                    <%= link_to edit_user_path(e.id) do %>
-                        <button class="btn btn-primary">Edit</button>
-                    <% end %>
+                    <div class="span2" style="float:right;">
+                      <%= link_to edit_user_path(e.id) do %>
+                          <button class="btn btn-primary">Edit</button>
+                      <% end %>
+                    </div>
+
+                    <div class="span2" style="float:right;">
+                      <%=link_to client_path(e) do %>
+                          <button class="btn btn-primary">Sell Stock</button>
+                      <% end %>
+                    </div>
+
+                    <div class="span2" style="float:right;">
+                      <%= link_to new_order_path(buy_sell_type: "buy", account_id: e.account.id) do %>
+                          <button class="btn btn-primary">Buy Stock</button>
+                      <% end %>
+                    </div>
+
                   </div>
-                </div>
-            <% end %>
+              <% end %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div style="width: 28%;display:inline-block;vertical-align:top;float:right;">
+    <div>Change from 200 day moving average</div><br/>
+    <% @stock_suggestions.each do |stock_symbol, change| %>
+        <% if change.to_i > 0 %>
+            <div><%=stock_symbol%><span style="float:right;color:green;">+$<%=change%></span></div>
         <% end %>
     <% end %>
   </div>

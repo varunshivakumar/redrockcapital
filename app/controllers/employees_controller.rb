@@ -17,7 +17,7 @@ class EmployeesController < ApplicationController
 
     # Employee:(4)
     # Produce a list of stock suggestions for a given customer (same as client/side)
-    @stk_suggestions = stock_suggestions
+    @stock_suggestions = stock_suggestions
   end
 
   def manager_home
