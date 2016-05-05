@@ -11,28 +11,45 @@
   <h3>Comprehensive Listing of Stocks</h3>
   <hr>
   <div style="width:100%; margin-bottom: 20px;">
-    <% @stocks.each do |s| %>
-        <%= link_to stock_path(s.stock_symbol), style: 'display:inline-block;height: 40px;width:230px;vertical-align:top;' do %>
-            <div style="font-weight: bold; font-size: 18px;display:inline-block;width:70px;"><%= s.stock_symbol %></div>
-            <span style="font-size: 14px;"><%= s.company_name.size > 15 ? s.company_name[0..15] + '...' : s.company_name[0..15]%></span>
-        <% end %>
+    <% @stocks.each do |stock| %>
+        <%= render 'stocks/stock_comprehensive', stock: stock %>
     <% end %>
   </div>
 
   <% stock_ids = @stocks.collect {|stock| stock.id } %>
   <% orders = Order.where(stock_id: stock_ids) %>
 
-  <h3>Recent Orders</h3>
-  <hr>
-  <%orders.each do |ord| %>
-      <% stock = Stock.find(ord.stock_id) %>
-      <div class="stock span3" style="height: 200px;width:200px;margin-bottom:20px;">
-        <%= link_to stock_path(stock.stock_symbol) do %><h3><%= stock.stock_symbol %></h3><% end %>
-        <div style="height:40px;"><h5><%= stock.company_name %></h5></div>
-        Price Per Share:  <%=stock.price_per_share %> <br>
-        Stock Type: <%= stock.stock_type.capitalize %><br><br>
-        Employee: <%= ord.employee.first_name %> <%= ord.employee.last_name %><br>
-        Client: <%= ord.account.client.first_name %>  <%= ord.account.client.last_name %> <br>
-      </div>
-  <% end %>
+  <h3>Most Recent Order History</h3>
+  <table class="table table-hover">
+    <th>Client</th><th>Stock</th><th>Buy/Sell</th><th>Order Type</th><th>Num. Shares</th>
+    <th>PPS</th><th>Stock Cost</th><th>Employee</th><th>Transaction Fee</th><!--<th>Completed</th>-->
+    <% orders.each do |o|  %>
+        <tr><%= render 'orders/order_table', order: o %></tr>
+    <% end %>
+  </table>
+  <br><br>
+
+  <div>
+    <h3>Best-Seller Stocks</h3>
+    <hr>
+    <div style="width:100%; margin-bottom: 20px;">
+      <% @best_seller_stocks[0..3].each do |stock_id, num_shares| %>
+          <% if stock_id > 0 %>
+              <%= render 'stocks/stock_simple', stock: Stock.find(stock_id) %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <h3>Most-Actively Traded Stocks</h3>
+    <hr>
+    <div style="width:100%; margin-bottom: 20px;">
+      <% @most_actively_traded_stocks[0..3].each do |stock_id, num_shares| %>
+          <% if stock_id > 0 %>
+              <%= render 'stocks/stock_simple', stock: Stock.find(stock_id) %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

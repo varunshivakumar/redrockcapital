@@ -57,12 +57,14 @@ module Helper
     for order in orders
       id = order.stock_id
       if stocks_traded[id] == 0
-        stocks_traded[id] = order.num_shares
+        stocks_traded[id] = [order.stock_id, order.num_shares]
       else
-        stocks_traded[id] += order.num_shares
+        stocks_traded[id][1] += order.num_shares
       end
     end
-    stocks_traded.sort {|x, y| y <=> x}
+    stocks_traded = stocks_traded.collect{|s| s != 0 ? s : [0, 0]}
+    stocks_traded = stocks_traded.sort {|x, y| y[1] <=> x[1]}
+    stocks_traded
   end
 
   # Most actively traded stocks
@@ -72,12 +74,14 @@ module Helper
     for order in orders
       id = order.stock_id
       if stocks_traded[id] == 0
-        stocks_traded[id] = order.num_shares
+        stocks_traded[id] = [order.stock_id, order.num_shares]
       else
-        stocks_traded[id] += order.num_shares
+        stocks_traded[id][1] += order.num_shares
       end
     end
-    stocks_traded.sort {|x, y| y <=> x}
+    stocks_traded = stocks_traded.collect{|s| s != 0 ? s : [0, 0]}
+    stocks_traded = stocks_traded.sort {|x, y| y[1] <=> x[1]}
+    stocks_traded
   end
 
   # Customer mailing lists
