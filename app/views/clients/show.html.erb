@@ -15,6 +15,10 @@
         <%= link_to new_order_path(buy_sell_type: "buy", account_id: @client.account.id) do %>
             <button class="btn btn-info">Buy Stock</button>
         <% end %>
+
+        <%= link_to clients_orders_path(@client) do %>
+            <button class="btn btn-info">Orders</button>
+        <% end %>
       </h2>
   <% end %>
 

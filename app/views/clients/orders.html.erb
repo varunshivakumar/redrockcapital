@@ -4,34 +4,24 @@
 <div class="container-fluid">
   <!-- Active Orders -->
   <h3>Current Orders: <%= @active_orders.size %></h3>
-  <% @active_orders.each do |ord| %>
-      <div class="span3">
-        <% stock = Stock.find(ord.stock_id) %>
-        <%= stock.company_name %>
-        <br>
-        Number of Shares: <%= ord.num_shares %>
-        <br>
-        <%= link_to stock_path(stock.stock_symbol)  do %>
-            <button type="button" class="btn btn-primary">View Stock</button>
-        <% end %>
-      </div>
-  <% end %>
+  <table class="table table-hover">
+    <th>Client</th><th>Stock</th><th>Buy/Sell</th><th>Order Type</th><th>Num. Shares</th>
+    <th>PPS</th><th>Stock Cost</th><th>Employee</th><th>Transaction Fee</th><!--<th>Completed</th>-->
+    <% @active_orders.each do |o|  %>
+        <tr><%= render 'orders/order_table', order: o %></tr>
+    <% end %>
+  </table>
 
   <!-- Separator and then orders past -->
   <hr style="margin: 0 auto">
 
   <!-- Completed Orders -->
   <h3>Completed Orders: <%= @completed_orders.size %></h3>
-  <% @completed_orders.each do |ord| %>
-      <div class="span3">
-        <% stock = Stock.find(ord.stock_id) %>
-        <%= stock.company_name %>
-        <br>
-        Number of Shares: <%= ord.num_shares %>
-        <br>
-        <%= link_to stock_path(stock.stock_symbol)  do %>
-            <button type="button" class="btn btn-primary">View Stock</button>
-        <% end %>
-      </div>
-  <% end %>
+  <table class="table table-hover">
+    <th>Client</th><th>Stock</th><th>Buy/Sell</th><th>Order Type</th><th>Num. Shares</th>
+    <th>PPS</th><th>Stock Cost</th><th>Employee</th><th>Transaction Fee</th><!--<th>Completed</th>-->
+    <% @completed_orders.each do |o|  %>
+        <tr><%= render 'orders/order_table', order: o %></tr>
+    <% end %>
+  </table>
 </div>
