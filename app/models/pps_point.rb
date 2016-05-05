@@ -16,15 +16,14 @@ class PpsPoint < ActiveRecord::Base
           order.update_attributes(completed: true)
           owns_stock.update_attributes(num_shares: owns_stock.num_shares - order.num_shares)
         end
-      else
-        if order.order_type == 4
-          new_order = Order.new
-          dup_order = order.dup
-          dup_order.id = new_order.id
-          dup_order.price_per_share = stock.price_per_share - dup_order.trail
-          dup_order.save
-          order.update_attributes(completed: true)
-        end
+      end
+      if order.order_type == 3
+        new_order = Order.new
+        dup_order = order.dup
+        dup_order.id = new_order.id
+        dup_order.price_per_share = stock.price_per_share - dup_order.trail
+        dup_order.save
+        order.update_attributes(completed: true)
       end
     end
   end

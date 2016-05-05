@@ -37,8 +37,8 @@ class OrdersController < ApplicationController
     elsif @order.order_type == 1
       @order.price_per_share = stock_quote.last_trade_price_only
       @order.completed = true
+    elsif @order.order_type == 2
     elsif @order.order_type == 3
-    elsif @order.order_type == 4
     end
 
     # Check incomplete orders
