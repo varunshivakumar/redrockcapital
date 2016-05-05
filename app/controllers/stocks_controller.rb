@@ -57,8 +57,9 @@ class StocksController < ApplicationController
   def update
     @stock = Stock.find(params[:name].to_i)
     if @stock.update_attributes(stock_params)
+      PpsPoint.create(stock_id: @stock.id, price_per_share: @stock.price_per_share)
       flash[:success] = "Stock Updated"
-      redirect_to :stocks
+      redirect_to stock_path(@stock.stock_symbol)
     else
       render 'root_path'
     end

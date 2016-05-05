@@ -1,6 +1,7 @@
 <!-- Stocks Show Page -->
 <div class="container-fluid">
   <h1><%= @stock_quote.name %> (<%= @stock.stock_symbol  %>)</h1>
+  <h2><%= link_to edit_stock_path(@stock) do %><button class="btn btn-info">Edit Stock Price</button><% end %></h2>
 
   <%= render 'shared/stock_chart', stock_symbol: @stock.stock_symbol %>
   <div id="stock_chart"></div>
@@ -13,4 +14,20 @@
         <tr><%= render 'orders/order_table', order: o %></tr>
     <% end %>
   </table>
+
+  <br>
+  <!-- Stored Price History -->
+  <h4>Stored Price History</h4>
+  <hr>
+  <div style="height: 400px;width:100%;">
+  <% ctr = 1 %>
+  <% @stock.pps_points.each do |ppsp| %>
+    <div class="inlineBlock" style="height:100px;width: 140px;">
+      <div style="font-weight: bold;">Price Point: <%=ctr%></div>
+      <div style="font-size:20px;font-weight: bold;margin: 5px 0 8px 0;">Price: $<%=ppsp.price_per_share%></div>
+      <div><%=ppsp.created_at.strftime("%D")%></div>
+      <%ctr +=1%>
+    </div>
+  <% end %>
+  </div>
 </div>

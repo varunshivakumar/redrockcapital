@@ -17,9 +17,6 @@ class OrdersController < ApplicationController
       @order.stock_id = params[:stock_id].to_i
     end
 
-    # Update all stock prices
-    # update_stocks
-
     # Preliminary info
     stock = Stock.find(@order.stock_id)
     stock_quote = StockQuote::Stock.quote(stock.stock_symbol)

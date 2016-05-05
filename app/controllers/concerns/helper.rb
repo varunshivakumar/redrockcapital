@@ -8,6 +8,7 @@ module Helper
       else
         stock.price_per_share = stock_quote.last_trade_price_only
       end
+      PpsPoint.create(stock_id: stock.id, price_per_share: stock.price_per_share)
       stock.save
     end
   end

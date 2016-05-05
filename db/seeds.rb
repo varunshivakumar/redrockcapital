@@ -78,7 +78,8 @@ client1 = Client.create(
 )
 account1 = Account.create(
     client_id: client1.id,
-    employee_id: employee1.id
+    employee_id: employee1.id,
+    created_at: "2006-10-15 00:00:00"
 )
 
 client2 = Client.create(
@@ -100,7 +101,8 @@ client2 = Client.create(
 )
 account2 = Account.create(
     client_id: client2.id,
-    employee_id: employee1.id
+    employee_id: employee1.id,
+    created_at: "2006-10-15 00:00:00"
 )
 
 
@@ -123,7 +125,8 @@ client3 = Client.create(
 )
 account3 = Account.create(
     client_id: client3.id,
-    employee_id: employee2.id
+    employee_id: employee2.id,
+    created_at: "2006-10-01 00:00:00"
 )
 
 
@@ -146,16 +149,17 @@ client4 = Client.create(
 )
 account4 = Account.create(
     client_id: client4.id,
-    employee_id: employee2.id
+    employee_id: employee2.id,
+    created_at: "2006-10-01 00:00:00"
 )
 
 # Stocks
 max_num_shares = 10000
-stock = StockQuote::Stock.quote('F');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('GM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask, total_num_shares: max_num_shares)
+stock = StockQuote::Stock.quote('F');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: 9.0, total_num_shares: 750)
+stock = StockQuote::Stock.quote('GM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: 34.23, total_num_shares: 1000)
 stock = StockQuote::Stock.quote('TSLA');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'automotive', price_per_share: stock.ask, total_num_shares: max_num_shares)
 stock = StockQuote::Stock.quote('INTC');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'computer', price_per_share: stock.ask, total_num_shares: max_num_shares)
-stock = StockQuote::Stock.quote('IBM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'computer', price_per_share: stock.ask, total_num_shares: max_num_shares)
+stock = StockQuote::Stock.quote('IBM');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'computer', price_per_share: 91.41, total_num_shares: 500)
 stock = StockQuote::Stock.quote('FB');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: max_num_shares)
 stock = StockQuote::Stock.quote('GOOG');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: max_num_shares)
 stock = StockQuote::Stock.quote('AAPL');Stock.create(stock_symbol: stock.symbol, company_name: stock.name, stock_type: 'technology', price_per_share: stock.ask, total_num_shares: max_num_shares)
@@ -201,13 +205,14 @@ ownStock3 = OwnsStock.create( # Client 222-22-2222 owns IBM(50)
 )
 order1 = MarketOrder.create(
     num_shares: 75,
+    price_per_share: 34.0,
     completed: true,
     buy_sell_type: "buy",
     account_id: account4.id,
     employee_id: account4.employee_id,
     stock_id: gm_stock_id,
     order_type: 0,
-    transaction_fee: 30
+    transaction_fee: 10 # made this value up
 )
 
 order2 = TrailingStopOrder.create(
@@ -217,7 +222,10 @@ order2 = TrailingStopOrder.create(
     account_id: account2.id,
     employee_id: account2.employee_id,
     stock_id: ibm_stock_id,
+    buy_sell_type: "sell",
     order_type: 3,
-    transaction_fee: 50
+    trail: 10.00,
+    transaction_fee: 10 # made this value up
+
 )
 # =end
