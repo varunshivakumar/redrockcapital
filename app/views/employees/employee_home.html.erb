@@ -3,7 +3,14 @@
 <% else %>
     <h1>Welcome to <%= @employee.first_name %> <%= @employee.last_name %>'s Home Page</h1>
 <% end %>
-<h2>Employee Home Page</h2>
+<% if current_user?(@employee) || (current_user.admin && current_user.is_employee)%>
+    <h2>Hourly Rate: $<%= @employee.hourly_rate%></h2>
+<%end%>
+<h2>
+  <%= link_to edit_user_path(@employee, employee: true) do %>
+      <button class="btn btn-info">Edit Employee Info</button>
+  <% end %>
+</h2>
 <!--@employee is an employee -->
 <!-- @emails is mailing list-->
 <div class="container-fluid">

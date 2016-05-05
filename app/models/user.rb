@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   attr_accessor :employee
+  after_create :add_account
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -16,6 +17,12 @@ class User < ActiveRecord::Base
 
   def User.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def add_account
+    unless self.employee
+      Account.create(client_id: self.id, employee_id: Employee.where(is_employee:true).first.id)
+    end
   end
 
   private

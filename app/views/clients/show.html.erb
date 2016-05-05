@@ -3,12 +3,12 @@
   <% if current_user?(@client) %>
       <h1>Welcome <%= @client.first_name %></h1>
   <% else %>
-      <h1>Welcome to <%= @client.first_name %>'s</h1>
+      <h1>Welcome to <%= @client.first_name %>'s Home Page</h1>
   <% end %>
-
+<h2>Rating: <%=@client.rating%></h2>
   <% if current_user?(@client) || current_user.is_employee %>
       <h2>
-        <%= link_to edit_user_path(@client) do %>
+        <%= link_to edit_user_path(@client, employee: false) do %>
             <button class="btn btn-info">Edit User Info</button>
         <% end %>
 

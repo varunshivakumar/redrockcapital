@@ -29,6 +29,16 @@
     <%= f.text_field :telephone %>
 
     <%= f.hidden_field :is_employee, value: employee %>
+    <% if employee %>
+        <%= f.label :hourly_rate %>
+        <%= f.text_field :hourly_rate %>
+    <% else %>
+        <%= f.label :credit_card_no %>
+        <%= f.text_field :credit_card_no %>
+
+        <%= f.label :rating %>
+        <%= f.text_field :rating %>
+    <% end %>
 
     <%= f.label :password %>
     <%= f.password_field :password %>

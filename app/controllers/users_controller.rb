@@ -19,25 +19,33 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.location = location
     if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to RedRock Capital!"
-      redirect_to @user
+      # sign_in @user
+      flash[:success] = "Account Created. User can log in"
+      if @user.is_employee
+        redirect_to controller: 'employees', action: 'employee_home', id: @user.id
+      else
+        redirect_to controller: 'clients', action: 'show', id: @user.id
+      end
     else
-      render 'new'
+      redirect_to controller: 'users', action: 'new', id: @user.id
     end
   end
 
   def edit
+    @is_employee = params[:employee]
   end
 
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      if @user.is_employee
+        redirect_to controller: 'employees', action: 'employee_home', id: @user.id
+      else
+        redirect_to controller: 'clients', action: 'show', id: @user.id
+      end
     else
-      render 'edit'
+      redirect_to controller: 'users', action: 'edit', id: @user.id
     end
   end
 
@@ -49,7 +57,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :ssn, :telephone, :password, :password_confirmation, :address, :zipcode, :city, :state, :is_employee)
+      params.require(:user).permit(:first_name, :last_name, :email, :ssn, :telephone, :password, :password_confirmation, :address, :zipcode, :city, :state, :is_employee, :hourly_rate, :credit_card_no, :rating)
     end
 
     # Before filters
