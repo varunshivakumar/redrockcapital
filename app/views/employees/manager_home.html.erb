@@ -38,7 +38,11 @@
       <th>Client Name</th><th>Revenue</th>
       <% @clients.each do |client|%>
           <tr>
-            <td><%= client.last_name%>, <%= client.first_name%> </td>
+            <td>
+              <%= link_to client_path(client) do %>
+                  <%= client.last_name%>, <%= client.first_name%>
+              <% end %>
+            </td>
             <td> $<%= client_revenue(client.account.id)%></td>
           </tr>
       <% end %>
@@ -64,7 +68,11 @@
       <th>Stock Name</th><th>Revenue</th>
       <%@stocks.each do |s| %>
           <tr>
-            <td><%= s.stock_symbol %></td>
+            <td>
+              <%= link_to stock_path(s.stock_symbol) do %>
+                  <%= s.stock_symbol %>
+              <% end %>
+            </td>
             <td>$<%= stock_revenue(s.stock_symbol) %></td>
       <% end %>
       </tr>

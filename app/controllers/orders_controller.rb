@@ -43,8 +43,8 @@ class OrdersController < ApplicationController
     end
 
     # Check incomplete orders
-
     if @order.save
+      @order.update_attributes(buy_sell_type: @order.buy_sell_type)
       # Create owns stock object
       if @order.buy_sell_type == "buy"
         @owns_stock = OwnsStock.create(

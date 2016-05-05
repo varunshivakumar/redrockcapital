@@ -1,13 +1,13 @@
 <div class="span3">
   <% user = Client.find(Account.find(order.account_id).client_id) %>
-  <td><%= user.last_name%>, <%= user.first_name%></td>
-  <td><%= order.stock.stock_symbol %></td>
-  <td><%= order.buy_sell_type %></td>
+  <td><%=link_to client_path(user) do%><%= user.last_name%>, <%= user.first_name%><%end%></td>
+  <td><%=link_to stock_path(order.stock.stock_symbol) do%><%= order.stock.stock_symbol %><%end%></td>
+  <td><%= order.buy_sell_type.capitalize %></td>
   <td><%= ["Market", "Market On Close", "Hidden Stop", "Trailing Stop"][order.order_type] %></td>
   <td><%= order.num_shares %></td>
   <td>$<%= order.price_per_share %></td>
   <td>$<%= order.price_per_share * order.num_shares %></td>
-  <td><%= order.employee.last_name %>, <%= order.employee.first_name %></td>
+  <td><%=link_to employee_path(order.employee) do%><%= order.employee.last_name %>, <%= order.employee.first_name %><%end%></td>
   <td>$<%= order.transaction_fee ? order.transaction_fee : '0'%></td>
   <% order.completed ?  @completed='color: green' : @completed='color: red' %>
   <!--<td><span style="<%#=@completed%>">  <%#= order.completed %></span></td>-->
