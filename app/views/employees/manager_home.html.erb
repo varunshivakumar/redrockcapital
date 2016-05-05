@@ -1,73 +1,63 @@
 <h1>Manager Home Page</h1>
 <h2>Welcome <%= current_user.first_name %></h2>
 
-<div clas="container">
+<div class="container">
   <div class="row">
-    <h3>Sales report for last 30 days</h3>
+    <h3>Sales Report for Last 30 Days</h3>
+    <table class="table table-hover">
+      <th>Client</th><th>Stock</th><th>Buy/Sell</th><th>Order Type</th><th>Num. Shares</th>
+      <th>PPS</th><th>Stock Cost</th><th>Employee</th><th>Transaction Fee</th><!--<th>Completed</th>-->
+      <% @sales_report.each do |o|  %>
+          <tr><%= render 'orders/order_table', order: o %></tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="row">
     <hr>
-    <% @sales_report.each do |o|  %>
-        <div class="span3">
-          <% user = Client.find(Account.find(o.account_id).client_id) %>
-          Client: <%= user.last_name%>, <%= user.first_name%> <br>
-          Price Per Share: <%= o.price_per_share %> <br>
-          Type: <%=o.order_type%> <br>
-          <% stockReport = Stock.find(o.stock_id) %>
-          Stock Symbol: <%= stockReport.stock_symbol %> <br>
-
-          Number of shares: <%= o.num_shares %><br>
-          Transaction Fee: $<%= o.transaction_fee ? o.transaction_fee : '0'%><br>
-
-          <% o.completed ?  @completed='color: green' : @completed='color: red' %>
-          Order Completed: <span style="<%=@completed%>">  <%= o.completed %></span>  <br>
-          <% employee =  Employee.find(o.employee_id) %>
-          Employee: <%= employee.last_name%>, <%= employee.first_name%> <br>
-        </div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="span6">
-      <h3>Employee of the month</h3>
-      <hr>
-      <%=@best_employee_revenue[0].first_name %> <%= @best_employee_revenue[0].last_name %><br>
-      <%= link_to employee_path(@best_employee_revenue[0]) do %>
-          <button class="btn btn-info">View</button>
+    <h3>
+      Employee of the Month:
+      <%= link_to employee_path(@best_employee_revenue[0]), style:'display: inline-block;' do %>
+          <%=@best_employee_revenue[0].first_name %> <%= @best_employee_revenue[0].last_name %><br>
       <% end %>
-    </div>
-    <div class="span6">
-      <h3>Most Valued Client</h3>
-      <hr>
-      <%=@best_client_revenue[0].first_name %> <%=@best_client_revenue[0].last_name %><br>
-      <%= link_to client_path(@best_client_revenue[0]) do %>
-          <button class="btn btn-info">View</button>
+      generated $<%=@best_employee_revenue[1] %>
+    </h3>
+    <h3>
+      Most Valued Client:
+      <%= link_to client_path(@best_client_revenue[0]), style:'display: inline-block;'  do %>
+          <%=@best_client_revenue[0].first_name %> <%=@best_client_revenue[0].last_name %><br>
       <% end %>
-    </div>
+      generated $<%=@best_client_revenue[1] %>
+    </h3>
+    <hr>
   </div>
+
   <div class="row">
     <h3>Revenue by client</h3>
-    <hr>
     <table class="table table-hover">
       <th>Client Name</th><th>Revenue</th>
       <% @clients.each do |client|%>
           <tr>
-            <td> <%= client.first_name%> <%= client.last_name%></td>
+            <td><%= client.last_name%>, <%= client.first_name%> </td>
             <td> $<%= client_revenue(client.account.id)%></td>
           </tr>
       <% end %>
     </table>
   </div>
+
   <div class="row">
     <h3>Stock Types</h3>
-    <hr>
     <table class="table table-hover">
       <th>Industry</th><th>Revenue</th>
       <% @stock_types.each do |s| %>
           <tr>
-            <td><%= s %></td>
+            <td><%= s.capitalize %></td>
             <td>$<%= stock_type_revenue(s) %></td>
           </tr>
       <% end %>
     </table>
   </div>
+
   <div class="row">
     <h3>Stock Revenue Total</h3>
     <table class="table table-hover">
